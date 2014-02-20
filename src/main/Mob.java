@@ -1,18 +1,20 @@
+package main;
 
 
-public class Player {
+public class Mob {
 	
-	Health pHealth = new Health();
+	Health aHealth = new Health();
 	
 	public boolean pDeath() {
-		if (pHealth.getHealth() < 0) {
+		if (aHealth.getHealth() < 0) {
 			return true;
 		} else {
 			return false;
 		}	
 	}
 	public void damage(int ammount) {
-		pHealth.damage(ammount);
+		aHealth.damage(ammount);
 	}
+	
 	
 }
