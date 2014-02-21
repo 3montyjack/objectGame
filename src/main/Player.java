@@ -1,7 +1,6 @@
 package main;
 
 
-public class Player {
-	
-
+public class Player extends Mob {
+	 
 }
