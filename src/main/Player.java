@@ -13,4 +13,8 @@ public class Player extends Mob {
 		 int value = inventory[slot];
 		 return value;
 	 }
+	 
+	 public static void addItem(Item item) {
+		 
+	 }
 }
