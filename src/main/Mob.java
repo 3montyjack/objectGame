@@ -3,18 +3,40 @@ package main;
 
 public class Mob {
 	
-	Health aHealth = new Health();
+	Health health = new Health();
+	Energy energy = new Energy();
 	
-	public boolean pDeath() {
-		if (aHealth.getHealth() < 0) {
+	public boolean getDead() {
+		if (health.getHealth() < 0) {
 			return true;
 		} else {
 			return false;
 		}	
 	}
-	public void damage(int ammount) {
-		aHealth.damage(ammount);
+	public void looseHealth(int ammount) {
+		health.looseHealth(ammount);
 	}
+	
+	public void gainHealth(int ammount) {
+		health.gainHealth(ammount);
+	}
+	
+	public void gainEnergy(int ammount) {
+		energy.useEnergy(ammount);
+	}
+	
+	public void useEnergy(int ammount) {
+		energy.useEnergy(ammount);
+	}
+	
+	public int getHealth() {
+		return health.getHealth();
+
+	}
+	
+	
+	
+	
 	
 	
 }

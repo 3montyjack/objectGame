@@ -9,7 +9,10 @@ public class Main {
 		new Window();
 		new Cube();
 		
+		window.setMainPlane();
 		ha.getItem();
+		
+		window.setBounds(0);
 		
 		
 	}

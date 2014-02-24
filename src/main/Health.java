@@ -15,11 +15,11 @@ public class Health {
 		
 	}
 	
-	void damage(int ammount) {
+	void looseHealth(int ammount) {
 		health = health - ammount;
 	}
 	
-	void heal(int ammount) {
+	void gainHealth(int ammount) {
 		health = health + ammount;
 	}
 }
