@@ -4,6 +4,8 @@ public class Main {
 
 	static Cube ha = new Cube();
 	static Window window = new Window();
+	static Player player = new Player();
+	static Cube cube = new Cube();
 	
 	public static void main(String[] args) {
 		new Window();
@@ -11,9 +13,8 @@ public class Main {
 		
 		window.setMainPlane();
 		ha.getItem();
-		
 		window.setBounds(0);
-		
+		player.setInv(cube);
 		
 	}
 	

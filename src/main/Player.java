@@ -4,20 +4,20 @@ package main;
 public class Player extends Mob {
 	
 	Item item = new Item();
-	static int[] inventory = {0,0,0,0,0,0,0,0,0,0};
+	Inventory inventory = new Inventory(10);
 	 
 	 
-	public static void setInv(int slot, int value) {
-		 inventory[slot] = value;
+	public void setInv(Item value) {
+		 inventory.add(value);
 	}
 	 
 	public static int checkSlot(int slot) {
-		int value = inventory[slot];
+		int value = 0;
 		return value;
 	}
 	 
 	public void printNameItem(int slot) {
-		item.getName(inventory[slot]);
+		item.getName(inventory.get(slot));
 	}
 	 
 	public static void addItem(Item item) {
