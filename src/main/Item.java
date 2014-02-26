@@ -8,6 +8,13 @@ public class Item extends GameObject {
 	protected Player player;
 	protected int id;
 	
+	public Item(int type, String name, int damage, int energy) {
+		this.name = name;
+		this.type = type;
+		this.energy = energy;
+		this.damage = damage;
+	}
+	
 	protected void init(int id, int type, String name, int damage, int energy) {
 		this.id = id;
 		this.name = name;
