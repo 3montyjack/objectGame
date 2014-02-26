@@ -2,8 +2,13 @@ package main;
 
 public class ItemList {
 	
-	Item[] item = new Item[10];
+	private static Item[] items = null;
 	
-	Item[0] = (1,"Wooden Sword", 3, 0) ;
-	(1,"Chain Sword", 3, 0) = Item[1];
+	public static void setup () 
+	{
+		
+		items[0] = (10, "Sword", 3, 4);
+		ItemList.items = new Item[10];
+	}
+	
 }

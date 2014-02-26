@@ -1,41 +1,43 @@
 package main;
 
-public class Item extends GameObject {
+public class Item 
+{
 	
+	protected int type;
 	protected String name;
 	protected int damage;
 	protected int energy;
-	protected Player player;
-	protected int id;
 	
-	public Item(int type, String name, int damage, int energy) {
+	public Item(int type, String name, int damage, int energy)
+	{
 		this.name = name;
 		this.type = type;
 		this.energy = energy;
 		this.damage = damage;
 	}
 	
-	protected void init(int id, int type, String name, int damage, int energy) {
-		this.id = id;
-		this.name = name;
-		this.type = type;
-		this.energy = energy;
-		this.damage = damage;
-	}
-	
-	public String getName(Item item) {
-		
+	public String getName(Item item) 
+	{
 		return name;
 		
 	}
 	
-	public int getId(){
-		return id;
+	public int getDamage(Item item) 
+	{
+		return damage;
+		
 	}
 	
-	public void getItem() {
-		System.out.println("You just got a " + name + "!");
-		Player.addItem(this);
+	public int getEnergy(Item item) 
+	{
+		return energy;
+		
+	}
+	
+	public int getType(Item item) 
+	{
+		return type;
+		
 	}
 	
 	
