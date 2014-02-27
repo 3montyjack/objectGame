@@ -2,11 +2,10 @@ package main;
 
 
 public class Player extends Mob {
-	
 
 	Inventory inventory = new Inventory(10);
-	 
-	 
+	
+	
 	public void setInv(Item value) {
 		 inventory.add(value);
 	}

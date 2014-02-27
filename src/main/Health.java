@@ -5,6 +5,10 @@ public class Health {
 	
 	int health;
 	
+	public Health(int startingHealth) {
+		setHealth(startingHealth);
+	}
+	
 	int getHealth() {
 		return health;
 	}

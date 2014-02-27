@@ -3,7 +3,7 @@ package main;
 
 public class Mob {
 	
-	Health health = new Health();
+	static Health health = new Health(100);
 	Energy energy = new Energy();
 	
 	public boolean getDead() {
@@ -29,7 +29,7 @@ public class Mob {
 		energy.useEnergy(ammount);
 	}
 	
-	public int getHealth() {
+	public static int getHealth() {
 		return health.getHealth();
 
 	}
