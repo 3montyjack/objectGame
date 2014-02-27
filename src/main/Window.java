@@ -1,5 +1,8 @@
 package main;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLayeredPane;
@@ -13,7 +16,7 @@ public class Window {
 
 	static JButton AMButton = new JButton("Attack");
 	static JButton BMButton = new JButton("Potion");
-	static JButton CMButton = new JButton("Inventory");
+	static JButton CMButton = new JButton("Exit");
 	
 	static JButton APButton = new JButton("Small Potion");
 	static JButton BPButton = new JButton("Medium Potion");
@@ -50,7 +53,57 @@ public class Window {
 		
 		setBounds(0);
 		
+		AMButtonS();
+		BMButtonS();
+		CMButtonS();
+		
+		DAButtonS();
+		
+		DPButtonS();
+		
 	}
+	
+
+	public void AMButtonS() {
+		AMButton.addActionListener(new ActionListener() { 
+			  public void actionPerformed(ActionEvent e) { 
+			    setBounds(2);
+			  } 
+			} );
+	}
+	
+	public void BMButtonS() {
+		BMButton.addActionListener(new ActionListener() { 
+			  public void actionPerformed(ActionEvent e) { 
+			    setBounds(1);
+			  } 
+			} );
+	}
+	
+	public void CMButtonS() {
+		CMButton.addActionListener(new ActionListener() { 
+			  public void actionPerformed(ActionEvent e) { 
+			    System.exit(0);
+			  } 
+			} );
+	}
+	
+	public void DAButtonS() {
+		DAButton.addActionListener(new ActionListener() { 
+			  public void actionPerformed(ActionEvent e) { 
+			    setBounds(0);
+			  } 
+			} );
+	}
+	
+	public void DPButtonS() {
+		DPButton.addActionListener(new ActionListener() { 
+			  public void actionPerformed(ActionEvent e) { 
+			    setBounds(0);
+			  } 
+			} );
+	}
+	
 
 	public void setPotionPlane() {
 		setBounds(1);
