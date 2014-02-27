@@ -1,6 +1,7 @@
 package main;
 
 import java.awt.event.ActionEvent;
+
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
@@ -8,7 +9,9 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
 
-public class Window {
+public class Window implements ActionListener {
+	
+	
 	
 	static JFrame window = new JFrame();
 	
@@ -62,122 +65,24 @@ public class Window {
 		label.setBounds(0, 0, 200, 30);
 		health.setBounds(400, 0 , 100, 30);
 		
+		AMButton.setActionCommand("1");
+		BMButton.setActionCommand("2");
+		CMButton.setActionCommand("3");
+		
+		AAButton.setActionCommand("4");
+		BAButton.setActionCommand("5");
+		CAButton.setActionCommand("6");
+		DAButton.setActionCommand("7");
+		
+		APButton.setActionCommand("8");
+		BPButton.setActionCommand("9");
+		CPButton.setActionCommand("10");
+		DPButton.setActionCommand("11");
+		
 		setBounds(0);
 		
-		AMButtonS();
-		BMButtonS();
-		CMButtonS();
-		
-		AAButtonS();
-		BAButtonS();
-		CAButtonS();
-		DAButtonS();
-		
-		APButtonS();
-		BPButtonS();
-		CPButtonS();
-		DPButtonS();
-		
 	}
 	
-
-	public void AMButtonS() {
-		AMButton.addActionListener(new ActionListener() { 
-			  public void actionPerformed(ActionEvent e) { 
-			    setBounds(2);
-			    label.setText("Nothing");
-			  } 
-			} );
-	}
-	
-	public void BMButtonS() {
-		BMButton.addActionListener(new ActionListener() { 
-			  public void actionPerformed(ActionEvent e) { 
-			    setBounds(1);
-			    label.setText("Nothing");
-			  } 
-			} );
-	}
-	
-	public void CMButtonS() {
-		CMButton.addActionListener(new ActionListener() { 
-			  public void actionPerformed(ActionEvent e) { 
-			    System.exit(0);
-			  } 
-			} );
-	}
-	
-	public void AAButtonS() {
-		AAButton.addActionListener(new ActionListener() { 
-			  public void actionPerformed(ActionEvent e) { 
-			    //TODO Program Attacks
-				  label.setText("Not Programmed Yet");
-			  } 
-			} );
-	}
-	
-	public void BAButtonS() {
-		BAButton.addActionListener(new ActionListener() { 
-			  public void actionPerformed(ActionEvent e) { 
-			    //TODO Program Attacks
-				  label.setText("Not Programmed Yet");
-			  } 
-			} );
-	}
-	
-	public void CAButtonS() {
-		CAButton.addActionListener(new ActionListener() { 
-			  public void actionPerformed(ActionEvent e) { 
-			    //TODO Program Attacks
-				  label.setText("Not Programmed Yet");
-			  } 
-			} );
-	}
-	
-	public void DAButtonS() {
-		DAButton.addActionListener(new ActionListener() { 
-			  public void actionPerformed(ActionEvent e) { 
-			    setBounds(0);
-			  } 
-			} );
-	}
-	
-	public void APButtonS() {
-		APButton.addActionListener(new ActionListener() { 
-			  public void actionPerformed(ActionEvent e) { 
-			    //TODO Potion effects
-				  label.setText("Not Programmed Yet");
-			  } 
-			} );
-	}
-	
-	public void BPButtonS() {
-		BPButton.addActionListener(new ActionListener() { 
-			  public void actionPerformed(ActionEvent e) { 
-			    //TODO Potion effects
-				  label.setText("Not Programmed Yet");
-			  } 
-			} );
-	}
-	
-	public void CPButtonS() {
-		CPButton.addActionListener(new ActionListener() { 
-			  public void actionPerformed(ActionEvent e) { 
-			    //TODO Potion effects
-				  label.setText("Not Programmed Yet");
-			  } 
-			} );
-	}
-	
-	public void DPButtonS() {
-		DPButton.addActionListener(new ActionListener() { 
-			  public void actionPerformed(ActionEvent e) { 
-			    setBounds(0);
-			  } 
-			} );
-	}
-	
-
 	public void setPotionPlane() {
 		setBounds(1);
 	}
@@ -246,6 +151,48 @@ public class Window {
 			DAButton.setBounds(10, 430*x*x, 100, 30);
 		}
 
+		
+	}
+
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+
+		int action = Integer.getInteger(e.getActionCommand());
+
+		 switch(action) {
+		 case 1:
+			    setBounds(2);
+			    label.setText("Nothing");
+		 case 2: 
+			    setBounds(1);
+			    label.setText("Nothing");
+		 case 3:
+			    System.exit(0);
+		 case 4:
+			    //TODO Program Attacks
+				  label.setText("Not Programmed Yet");
+		 case 5:
+			    //TODO Program Attacks
+				  label.setText("Not Programmed Yet");
+		 case 6:
+			    //TODO Program Attacks
+				  label.setText("Not Programmed Yet");
+		 case 7:
+			    setBounds(0);
+		 case 8:
+			    //TODO Program Potions
+				  label.setText("Not Programmed Yet");
+		 case 9:
+			    //TODO Program Potions
+				  label.setText("Not Programmed Yet");
+		 case 10:
+			    //TODO Program Potions
+				  label.setText("Not Programmed Yet");
+		 case 11:
+			    setBounds(0);
+		         
+		 }
 		
 	}
 	
