@@ -50,6 +50,7 @@ public class Window {
 		window.setVisible(true);
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
+		//This is giving me so much trouble
 		window.add(mainP);
 		window.add(potionP);
 		window.add(attackP);
@@ -150,68 +151,6 @@ public class Window {
 		mainP.setVisible(false);
 		attackP.setVisible(true);
 		potionP.setVisible(false);
-	}
-	
-	//Had trouble with the buttons becoming full page because other buttons had the same position as eachother, this is my solution
-	//Is it better to just change the name and do some checks to see what page it is on?
-	
-	public static void setBounds(int which)
-	{
-		//int x = 10;
-		
-		if (which == 1) 
-		{
-			
-			/*AMButton.setBounds(10, 350*x, 100, 30);
-			BMButton.setBounds(10, 390*x, 100, 30);
-			CMButton.setBounds(10, 430*x, 100, 30);
-			
-			APButton.setBounds(10, 310, 100, 30);
-			BPButton.setBounds(10, 350, 100, 30);
-			CPButton.setBounds(10, 390, 100, 30);
-			DPButton.setBounds(10, 430, 100, 30);
-			
-			AAButton.setBounds(10, 310*x*x, 100, 30);
-			BAButton.setBounds(10, 350*x*x, 100, 30);
-			CAButton.setBounds(10, 390*x*x, 100, 30);
-			DAButton.setBounds(10, 430*x*x, 100, 30);*/
-		} 
-		else if (which == 2)
-		{
-			/*AMButton.setBounds(10, 350*x, 100, 30);
-			BMButton.setBounds(10, 390*x, 100, 30);
-			CMButton.setBounds(10, 430*x, 100, 30);
-			
-			APButton.setBounds(10, 310*x*x, 100, 30);
-			BPButton.setBounds(10, 350*x*x, 100, 30);
-			CPButton.setBounds(10, 390*x*x, 100, 30);
-			DPButton.setBounds(10, 430*x*x, 100, 30);
-			
-			AAButton.setBounds(10, 310, 100, 30);
-			BAButton.setBounds(10, 350, 100, 30);
-			CAButton.setBounds(10, 390, 100, 30);
-			DAButton.setBounds(10, 430, 100, 30);*/
-		} 
-		else 
-		{
-			/*
-			AMButton.setBounds(10, 350, 100, 30);
-			BMButton.setBounds(10, 390, 100, 30);
-			CMButton.setBounds(10, 430, 100, 30);
-			
-			APButton.setBounds(10, 310*x, 100, 30);
-			BPButton.setBounds(10, 350*x, 100, 30);
-			CPButton.setBounds(10, 390*x, 100, 30);
-			DPButton.setBounds(10, 430*x, 100, 30);
-			
-			AAButton.setBounds(10, 310*x*x, 100, 30);
-			BAButton.setBounds(10, 350*x*x, 100, 30);
-			CAButton.setBounds(10, 390*x*x, 100, 30);
-			DAButton.setBounds(10, 430*x*x, 100, 30);
-			*/
-		}
-
-		
 	}
 }
 
