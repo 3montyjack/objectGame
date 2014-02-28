@@ -16,25 +16,25 @@ public class Item
 		this.damage = damage;
 	}
 	
-	public String getName(Item item) 
+	public String getName() 
 	{
 		return name;
 		
 	}
 	
-	public int getDamage(Item item) 
+	public int getDamage() 
 	{
 		return damage;
 		
 	}
 	
-	public int getEnergy(Item item) 
+	public int getEnergy() 
 	{
 		return energy;
 		
 	}
 	
-	public int getType(Item item) 
+	public int getType() 
 	{
 		return type;
 		

@@ -27,4 +27,29 @@ public class ItemList {
 	      }
 	      return null;
 	}
+	
+	public static int getDamage(int item) 
+	{
+		int damage =items[item].getDamage();
+		return damage;
+	}
+	
+	public static int getEnergy(int item)
+	{
+		int energy = items[item].getEnergy();
+		return energy;
+	}
+	
+	public static int getType(int item) 
+	{
+		int type = items[item].getType();
+		return type;
+		
+	}
+	
+	public static String getName(int item)
+	{
+		String name = items[item].getName();
+		return name;
+	}
 }
