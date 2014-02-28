@@ -6,7 +6,10 @@ public class ItemList {
 	
 	public static void setup (int maxItems) 
 	{
-		
+		items[0].damage = 3;
+		items[0].energy = 3;
+		items[0].name = "Wooden Sword";
+		items[0].type = 1;
 		
 		
 		ItemList.items = new Item[maxItems];
