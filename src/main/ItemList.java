@@ -6,11 +6,14 @@ public class ItemList {
 	
 	public static void setup (int maxItems) 
 	{
-		items[0].damage = 3;
-		items[0].energy = 3;
-		items[0].name = "Wooden Sword";
+		items[0].damage = 0;
+		items[0].energy = 0;
+		items[0].name = "Hand";
 		items[0].type = 1;
-		
+		items[1].damage = 3;
+		items[1].energy = 3;
+		items[1].name = "Wooden Sword";
+		items[1].type = 1;
 		
 		ItemList.items = new Item[maxItems];
 		for (int i = 0; i < maxItems; i++)

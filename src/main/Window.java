@@ -12,6 +12,7 @@ import javax.swing.JLayeredPane;
 
 public class Window {
 	
+	static int item = 0;
 	ActionClass actionEvent = new ActionClass();
 	
 	static JFrame window = new JFrame();
@@ -23,6 +24,7 @@ public class Window {
 	static JLabel Phealth = new JLabel("Player Health: " + Player.getHealth());
 	static JLabel Ehealth = new JLabel("Enemy Health: " + Zomble.getHealth());
 	static JLabel label = new JLabel("Nothing");
+	static JLabel elabel = new JLabel("Error");
 
 	static JButton AMButton = new JButton("Attack");
 	static JButton BMButton = new JButton("Potion");
@@ -56,12 +58,15 @@ public class Window {
 		window.add(attackP);
 		
 		window.add(label);
+		window.add(elabel);
 		window.add(Ehealth);
 		window.add(Phealth);
 		
-		mainP.add(Mbox);
-		potionP.add(Pbox);
-		attackP.add(Abox);
+		window.add(Mbox);
+		window.add(Pbox);
+		window.add(Abox);
+		
+		elabel.setAlignmentY(110);
 		
 		Mbox.setBounds(10, 310, 120, 150);
 		Pbox.setBounds(10, 310, 120, 150);
@@ -133,24 +138,28 @@ public class Window {
 	
 	public static void setPotionPlane() {
 		//setBounds(1);
-		mainP.setVisible(false);
-		attackP.setVisible(false);
-		potionP.setVisible(true);
+		Mbox.setVisible(false);
+		Abox.setVisible(false);
+		Pbox.setVisible(true);
 	}
 	
 	public static void setMainPlane() {
 		//setBounds(0);
-		mainP.setVisible(true);
-		attackP.setVisible(false);
-		potionP.setVisible(false);
+		Mbox.setVisible(true);
+		Abox.setVisible(false);
+		Pbox.setVisible(false);
 		
 	}
 	
 	public static void setAttackPlane() {
 		//setBounds(2);
-		mainP.setVisible(false);
-		attackP.setVisible(true);
-		potionP.setVisible(false);
+		Mbox.setVisible(false);
+		Abox.setVisible(true);
+		Pbox.setVisible(false);
+	}
+	
+	public void passError() {
+		
 	}
 }
 
@@ -176,14 +185,17 @@ class ActionClass implements ActionListener {
 			    break;
 		 case 4:
 			    //TODO Program Attacks
+			 	Zomble.slash(Window.item);
 				Window.label.setText("Not Programmed Yet");
 				break;
 		 case 5:
 			    //TODO Program Attacks
+			 	Zomble.stab(Window.item);
 			 	Window.label.setText("Not Programmed Yet");
 			 	break;
 		 case 6:
 			    //TODO Program Attacks
+			 	Zomble.poke(Window.item);
 			 	Window.label.setText("Not Programmed Yet");
 			 	break;
 		 case 7:

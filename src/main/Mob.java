@@ -3,6 +3,7 @@ package main;
 
 public class Mob {
 	
+	static Attack attack = new Attack();
 	static Health health = new Health(100);
 	Energy energy = new Energy();
 	
@@ -33,7 +34,18 @@ public class Mob {
 		return health.getHealth();
 
 	}
+	//These are on the player that it is casted on, like player.slash deducts from the players health
+	public static void slash(int item) {
+		health.looseHealth(attack.slash(item));
+	}
 	
+	public static void stab(int item) {
+		health.looseHealth(attack.stab(item));
+	}
+	
+	public static void poke(int item) {
+		health.looseHealth(attack.poke(item));
+	}
 	
 	
 	
