@@ -4,22 +4,22 @@ public class ItemList {
 
 	private static Item[] items = null;
 	
+
+	
 	public static void setup (int maxItems) 
 	{
-		items[0].damage = 0;
-		items[0].energy = 0;
-		items[0].name = "Hand";
-		items[0].type = 1;
-		items[1].damage = 3;
-		items[1].energy = 3;
-		items[1].name = "Wooden Sword";
-		items[1].type = 1;
-		
 		ItemList.items = new Item[maxItems];
 		for (int i = 0; i < maxItems; i++)
 		{
-			ItemList.items[i] = new Item(10,"Sword",3,4);
+			//Default item?
+			//Item type, Item Name, Item Bonus Damage, Item Energy
+			ItemList.items[i] = new Item(1,"Hand", 0, 0);
 		}
+		
+		items[1] = new Item(1,"Sword", 5, 5);
+		items[2] = new Item(1,"Mace", 10, 10);
+		
+
 	}
 	
 	public static Item fetch(int index)

@@ -7,6 +7,7 @@ public class Mob {
 	static Health health = new Health(100);
 	Energy energy = new Energy();
 	
+	
 	public boolean getDead() {
 		if (health.getHealth() < 0) {
 			return true;
@@ -46,7 +47,7 @@ public class Mob {
 	public static void poke(int item) {
 		health.looseHealth(attack.poke(item));
 	}
-	
+
 	
 	
 	
