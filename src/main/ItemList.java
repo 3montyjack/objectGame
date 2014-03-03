@@ -6,7 +6,7 @@ public class ItemList {
 	
 
 	
-	public static void setup (int maxItems) 
+	public void setup (int maxItems) 
 	{
 		ItemList.items = new Item[maxItems];
 		for (int i = 0; i < maxItems; i++)
@@ -33,26 +33,22 @@ public class ItemList {
 	
 	public static int getDamage(int item) 
 	{
-		int damage =items[item].getDamage();
-		return damage;
+		return items[item].getDamage();
 	}
 	
 	public int getEnergy(int item)
 	{
-		int energy = items[item].getEnergy();
-		return energy;
+		return items[item].getEnergy();
 	}
 	
 	public int getType(int item) 
 	{
-		int type = items[item].getType();
-		return type;
+		return items[item].getType();
 		
 	}
 	
 	public String getName(int item)
 	{
-		String name = items[item].getName();
-		return name;
+		return items[item].getName();
 	}
 }

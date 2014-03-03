@@ -15,34 +15,34 @@ public class Window {
 	static int item = 0;
 	ActionClass actionEvent = new ActionClass();
 	
-	static JFrame window = new JFrame();
+	JFrame window = new JFrame();
 	
-	static JLayeredPane mainP = new JLayeredPane();
-	static JLayeredPane attackP = new JLayeredPane();
-	static JLayeredPane potionP = new JLayeredPane();
+	JLayeredPane mainP = new JLayeredPane();
+	JLayeredPane attackP = new JLayeredPane();
+	JLayeredPane potionP = new JLayeredPane();
 	
 	JLabel Phealth = new JLabel("Player Health: " + Player.getHealth());
 	JLabel Ehealth = new JLabel("Enemy Health: " + Zomble.getHealth());
-	static JLabel label = new JLabel("No Error");
-	static JLabel elabel = new JLabel("Weapon");
+	JLabel label = new JLabel("No Error");
+	JLabel elabel = new JLabel("Weapon");
 
-	static JButton AMButton = new JButton("Attack");
-	static JButton BMButton = new JButton("Potion");
-	static JButton CMButton = new JButton("Exit");
+	JButton AMButton = new JButton("Attack");
+	JButton BMButton = new JButton("Potion");
+	JButton CMButton = new JButton("Exit");
 	
-	static JButton APButton = new JButton("Small Potion");
-	static JButton BPButton = new JButton("Medium Potion");
-	static JButton CPButton = new JButton("Large Potion");
-	static JButton DPButton = new JButton("Back");
+	JButton APButton = new JButton("Small Potion");
+	JButton BPButton = new JButton("Medium Potion");
+	JButton CPButton = new JButton("Large Potion");
+	JButton DPButton = new JButton("Back");
 	
-	static JButton AAButton = new JButton("Slash");
-	static JButton BAButton = new JButton("Stab");
-	static JButton CAButton = new JButton("Poke");
-	static JButton DAButton = new JButton("Back");
+	JButton AAButton = new JButton("Slash");
+	JButton BAButton = new JButton("Stab");
+	JButton CAButton = new JButton("Poke");
+	JButton DAButton = new JButton("Back");
 	
-	static Box Mbox = Box.createVerticalBox();
-	static Box Abox = Box.createVerticalBox();
-	static Box Pbox = Box.createVerticalBox();
+	Box Mbox = Box.createVerticalBox();
+	Box Abox = Box.createVerticalBox();
+	Box Pbox = Box.createVerticalBox();
 	
 	
 	public Window() {
@@ -136,14 +136,14 @@ public class Window {
 		
 	}
 	
-	public static void setPotionPlane() {
+	public void setPotionPlane() {
 		//setBounds(1);
 		Mbox.setVisible(false);
 		Abox.setVisible(false);
 		Pbox.setVisible(true);
 	}
 	
-	public static void setMainPlane() {
+	public void setMainPlane() {
 		//setBounds(0);
 		Mbox.setVisible(true);
 		Abox.setVisible(false);
@@ -151,7 +151,7 @@ public class Window {
 		
 	}
 	
-	public static void setAttackPlane() {
+	public void setAttackPlane() {
 		//setBounds(2);
 		Mbox.setVisible(false);
 		Abox.setVisible(true);
@@ -229,10 +229,7 @@ class ActionClass implements ActionListener {
 			 	System.out.println("Error");
 			 	break;
 		         
-		 }
-		
+		 }	
 	}
-	
-	
 
 }

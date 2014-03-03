@@ -4,19 +4,16 @@ public class Attack {
 	
 	public int slash(int item) {
 		int sD = 10;
-		int damage =ItemList.getDamage(item) + sD;
-		return damage;
+		return ItemList.getDamage(item) + sD;
 	}
 	
 	public int stab(int item) {
 		int sD = 5;
-		int damage =ItemList.getDamage(item) + sD;
-		return damage;
+		return ItemList.getDamage(item) + sD;
 	}
 	
 	public int poke(int item) {
 		int sD = 1;
-		int damage =ItemList.getDamage(item) + sD;
-		return damage;
+		return ItemList.getDamage(item) + sD;
 	}
 }
