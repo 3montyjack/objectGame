@@ -1,5 +1,6 @@
 package main;
 
+import java.awt.Color;
 import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -131,6 +132,42 @@ public class Window implements ActionListener{
 		BAButton.setAlignmentY(Component.CENTER_ALIGNMENT);
 		CAButton.setAlignmentY(Component.CENTER_ALIGNMENT);
 		DAButton.setAlignmentY(Component.BOTTOM_ALIGNMENT);
+		
+		/*
+		AMButton
+		BMButton
+		CMButton
+		
+		APButton
+		BPButton
+		CPButton
+		DAButton
+		
+		AAButton
+		BAButton
+		CAButton
+		DAButton
+		*/
+		
+		window.setBackground(Color.gray);
+		
+		AMButton.setBackground(Color.yellow);
+		BMButton.setBackground(Color.cyan);
+		CMButton.setBackground(Color.pink);
+		
+		AMButton.setFocusable(false);
+		BMButton.setFocusable(false);
+		CMButton.setFocusable(false);
+		
+		APButton.setFocusable(false);
+		BPButton.setFocusable(false);
+		CPButton.setFocusable(false);
+		DAButton.setFocusable(false);
+		
+		AAButton.setFocusable(false);
+		BAButton.setFocusable(false);
+		CAButton.setFocusable(false);
+		DAButton.setFocusable(false);
 		
 		ItemList.setup(10);
 		
