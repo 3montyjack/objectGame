@@ -16,6 +16,7 @@ public class ItemList {
 			ItemList.items[i] = new Item(1,"Hand", 0, 0);
 		}
 		
+		items[0] = new Item(1, "Hand", 0, 0);
 		items[1] = new Item(1,"Sword", 5, 5);
 		items[2] = new Item(1,"Mace", 10, 10);
 		

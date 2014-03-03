@@ -153,7 +153,6 @@ public class Window implements ActionListener{
 	}
 	
 	public void setAttackPlane() {
-		System.out.println("Window");
 		Mbox.setVisible(false);
 		Abox.setVisible(true);
 		Pbox.setVisible(false);
@@ -172,48 +171,59 @@ public class Window implements ActionListener{
 		 switch(action) {
 		 
 		 case 1:
-			 	System.out.print("ATTACK!!");
-			    setAttackPlane();   
+			    setAttackPlane();
+			    break;
 		 case 2: 
 			    setPotionPlane();
+			    break;
 		 case 3:
 			    System.exit(0);
+			    break;
 		 case 4:
 			 	zomble.slash(player.currentSlot());
 			 	setMainPlane();
 			 	zomble.attack();
 			 	update();
+			 	break;
 		 case 5:
 			 	zomble.stab(player.currentSlot());
 			 	setMainPlane();
 			 	zomble.attack();
 			 	update();
+			 	break;
 		 case 6:
 			 	zomble.poke(player.currentSlot());
 			 	setMainPlane();
 			 	zomble.attack();
 			 	update();
+			 	break;
 		 case 7:
 			    setMainPlane();
+			    break;
 		 case 8:
 			 	player.smallPotion();
 			 	setMainPlane();
 			 	zomble.attack();
 			 	update();
+			 	break;
 		 case 9:
 				player.mediumPotion();
 			 	setMainPlane();
 			 	zomble.attack();
 			 	update();
+			 	break;
 		 case 10:
 			 	player.largePotion();
 			 	setMainPlane();
 			 	zomble.attack();
 			 	update();
+			 	break;
 		 case 11:
 			    System.exit(10);
+			    break;
 		 default:
 			 	System.out.println("Error");
+			 	break;
 		         
 		 }	
 	}
