@@ -6,6 +6,8 @@ public class Mob {
 	static Attack attack = new Attack();
 	static Health health = new Health(100);
 	Energy energy = new Energy();
+	static Potion potion = new Potion();
+
 	
 	
 	public boolean getDead() {
@@ -15,11 +17,11 @@ public class Mob {
 			return false;
 		}	
 	}
-	public void looseHealth(int ammount) {
+	public static void looseHealth(int ammount) {
 		health.looseHealth(ammount);
 	}
 	
-	public void gainHealth(int ammount) {
+	public static void gainHealth(int ammount) {
 		health.gainHealth(ammount);
 	}
 	
@@ -37,17 +39,28 @@ public class Mob {
 	}
 	//These are on the player that it is casted on, like player.slash deducts from the players health
 	public static void slash(int item) {
-		health.looseHealth(attack.slash(item));
+		looseHealth(attack.slash(item));
 	}
 	
 	public static void stab(int item) {
-		health.looseHealth(attack.stab(item));
+		looseHealth(attack.stab(item));
 	}
 	
 	public static void poke(int item) {
-		health.looseHealth(attack.poke(item));
+		looseHealth(attack.poke(item));
 	}
 
+	public static void smallPotion() {
+		gainHealth(potion.smallPotion());
+	}
+	
+	public static void mediumPotion() {
+		gainHealth(potion.mediumPotion());
+	}
+	
+	public static void largePotion() {
+		gainHealth(potion.largePotion());
+	}
 	
 	
 	
