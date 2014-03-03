@@ -135,6 +135,8 @@ public class Window implements ActionListener{
 		CAButton.setAlignmentY(Component.CENTER_ALIGNMENT);
 		DAButton.setAlignmentY(Component.BOTTOM_ALIGNMENT);
 		
+		ItemList.setup(10);
+		
 		setMainPlane();
 		
 	}
