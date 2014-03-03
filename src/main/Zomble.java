@@ -2,7 +2,11 @@ package main;
 
 public class Zomble extends Mob {
 	
-	AI ai = new AI();
+	Player player;
+	
+	public Zomble(Player inputs) {
+		player = inputs;
+	}
 	
 	void attack() {
 		makeMove();
@@ -10,7 +14,7 @@ public class Zomble extends Mob {
 	
 	@SuppressWarnings("unused")
 	private int checkPHealth() {
-		return Player.getHealth();
+		return player.getHealth();
 	}
 
 	void makeMove()
@@ -19,7 +23,7 @@ public class Zomble extends Mob {
 		{
 			mediumPotion();
 		} else {
-			Player.stab(0);
+			player.stab(0);
 		}
 	}
 
@@ -30,7 +34,6 @@ public class Zomble extends Mob {
 	}
 
 	private int checkHealth() {
-		// TODO Auto-generated method stub
 		return getHealth();
 	}
 	

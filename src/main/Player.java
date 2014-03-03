@@ -5,6 +5,9 @@ public class Player extends Mob {
 
 	Inventory inventory = new Inventory(10);
 	
+	public Player() {
+		
+	}
 	
 	public int currentSlot = 0;
 	

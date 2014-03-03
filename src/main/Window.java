@@ -16,8 +16,9 @@ public class Window implements ActionListener{
 	
 	JFrame window = new JFrame();
 	
-	Zomble zomble = new Zomble();
+
 	Player player = new Player();
+	Zomble zomble = new Zomble(player);
 	
 	JLayeredPane mainP = new JLayeredPane();
 	JLayeredPane attackP = new JLayeredPane();
@@ -152,6 +153,7 @@ public class Window implements ActionListener{
 	}
 	
 	public void setAttackPlane() {
+		System.out.println("Window");
 		Mbox.setVisible(false);
 		Abox.setVisible(true);
 		Pbox.setVisible(false);
@@ -170,6 +172,7 @@ public class Window implements ActionListener{
 		 switch(action) {
 		 
 		 case 1:
+			 	System.out.print("ATTACK!!");
 			    setAttackPlane();   
 		 case 2: 
 			    setPotionPlane();
