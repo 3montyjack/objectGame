@@ -10,10 +10,9 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
 
-public class Window {
+public class Window implements ActionListener{
 	
-	static int item = 0;
-	ActionClass actionEvent = new ActionClass();
+	int item = 0;
 	
 	JFrame window = new JFrame();
 	
@@ -137,14 +136,12 @@ public class Window {
 	}
 	
 	public void setPotionPlane() {
-		//setBounds(1);
 		Mbox.setVisible(false);
 		Abox.setVisible(false);
 		Pbox.setVisible(true);
 	}
 	
 	public void setMainPlane() {
-		//setBounds(0);
 		Mbox.setVisible(true);
 		Abox.setVisible(false);
 		Pbox.setVisible(false);
@@ -152,20 +149,15 @@ public class Window {
 	}
 	
 	public void setAttackPlane() {
-		//setBounds(2);
 		Mbox.setVisible(false);
 		Abox.setVisible(true);
 		Pbox.setVisible(false);
 	}
 	
-	void update() {
+	public void update() {
 		Phealth.setText("Player Health: " + Player.getHealth());
 		Ehealth.setText("Enemy Health: " + Zomble.getHealth());
 	}
-}
-
-class ActionClass implements ActionListener {
-	
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
@@ -231,5 +223,4 @@ class ActionClass implements ActionListener {
 		         
 		 }	
 	}
-
 }
