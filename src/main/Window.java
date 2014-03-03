@@ -56,18 +56,15 @@ public class Window implements ActionListener{
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		//This is giving me so much trouble
-		window.add(mainP);
-		window.add(potionP);
-		window.add(attackP);
-		
 		window.add(label);
 		window.add(elabel);
 		window.add(Ehealth);
 		window.add(Phealth);
 		
+		window.add(Abox);
 		window.add(Mbox);
 		window.add(Pbox);
-		window.add(Abox);
+
 		
 		elabel.setAlignmentY(110);
 		
@@ -163,6 +160,7 @@ public class Window implements ActionListener{
 	public void update() {
 		Phealth.setText("Player Health: " + player.getHealth());
 		Ehealth.setText("Enemy Health: " + zomble.getHealth());
+		
 	}
 	
 	@Override
@@ -182,42 +180,36 @@ public class Window implements ActionListener{
 			    System.exit(0);
 			    break;
 		 case 4:
-			 	zomble.slash(player.currentSlot());
+			 	playerMove(1);
 			 	setMainPlane();
-			 	zomble.attack();
 			 	update();
 			 	break;
 		 case 5:
-			 	zomble.stab(player.currentSlot());
+			 	playerMove(2);
 			 	setMainPlane();
-			 	zomble.attack();
 			 	update();
 			 	break;
 		 case 6:
-			 	zomble.poke(player.currentSlot());
+			 	playerMove(3);
 			 	setMainPlane();
-			 	zomble.attack();
 			 	update();
 			 	break;
 		 case 7:
 			    setMainPlane();
 			    break;
 		 case 8:
-			 	player.smallPotion();
+			 	playerMove(4);
 			 	setMainPlane();
-			 	zomble.attack();
 			 	update();
 			 	break;
 		 case 9:
-				player.mediumPotion();
+			 	playerMove(5);
 			 	setMainPlane();
-			 	zomble.attack();
 			 	update();
 			 	break;
 		 case 10:
-			 	player.largePotion();
+			 	playerMove(6);
 			 	setMainPlane();
-			 	zomble.attack();
 			 	update();
 			 	break;
 		 case 11:
@@ -227,7 +219,51 @@ public class Window implements ActionListener{
 			 	System.out.println("Error");
 			 	break;
 		         
-		 }	
+		 }
+	}
+	
+	private void playerMove(int value) {
+	 	if (player.getDead()) {
+	 		label.setText("Player is Dead");
+	 	} else if (zomble.getDead()) {
+	 		AMButton.setEnabled(false);
+	 		BMButton.setEnabled(false);
+ 		} else {
+ 			System.out.println("Player Attack");
+ 			switch (value) {
+ 			case 1:
+ 				zomble.slash(player.currentSlot());
+ 				break;
+ 			case 2:
+ 				zomble.stab(player.currentSlot());
+ 				break;
+ 			case 3:
+ 				zomble.poke(player.currentSlot());
+ 				break;
+ 			case 4:
+ 				player.smallPotion();
+ 				break;
+ 			case 5:
+ 				player.mediumPotion();
+ 				break;
+ 			case 6:
+ 				player.largePotion();
+ 				break;
+ 			default:
+ 				label.setText("error");	
+ 				break;
+ 			}
+		 	
+	 	}
+	 	
+	 	if (zomble.getDead()) {
+	 		label.setText("Zombie is Dead");
+	 	} else if (player.getDead()){
+	 		AMButton.setEnabled(false);
+	 		BMButton.setEnabled(false);
+	 	} else {
+		 	zomble.attack();
+	 	}
 	}
 	
 }

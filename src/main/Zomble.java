@@ -21,9 +21,9 @@ public class Zomble extends Mob {
 	{
 		if  (checkHealth() <= 10) 
 		{
-			mediumPotion();
+			largePotion();
 		} else {
-			player.stab(0);
+			player.stab(2);
 		}
 	}
 

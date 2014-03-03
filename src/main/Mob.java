@@ -11,7 +11,8 @@ public class Mob {
 	
 	
 	public boolean getDead() {
-		if (health.getHealth() < 0) {
+		if (health.getHealth() <= 0) {
+			health.setHealth(0);
 			return true;
 		} else {
 			return false;
