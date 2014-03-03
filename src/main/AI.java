@@ -1,33 +1,31 @@
 package main;
 
 public class AI {
-	public AI() {
-		makeMove();
-		checkPHealth();
-		
-	}
 
 	private int checkPHealth() {
 		// TODO Auto-generated method stub
 		return Player.getHealth();
 	}
 
-	private void makeMove()
+	static void makeMove()
 	{
 		// TODO Auto-generated method stub
-		if  (checkHealth < 10) 
+		if  (checkHealth() <= 10) 
 		{
-			
+			Zomble.mediumPotion();
+		} else {
+			Player.stab(0);
 		}
 	}
 
 	private void checkEnergy() {
-		// TODO Auto-generated method stub
+		// TODO Make energy checks
+		
 		
 	}
 
-	private void checkHealth() {
+	private static int checkHealth() {
 		// TODO Auto-generated method stub
-		
+		return Zomble.getHealth();
 	}
 }

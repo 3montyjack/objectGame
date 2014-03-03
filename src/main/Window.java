@@ -23,8 +23,8 @@ public class Window {
 	
 	static JLabel Phealth = new JLabel("Player Health: " + Player.getHealth());
 	static JLabel Ehealth = new JLabel("Enemy Health: " + Zomble.getHealth());
-	static JLabel label = new JLabel("Nothing");
-	static JLabel elabel = new JLabel("Error");
+	static JLabel label = new JLabel("No Error");
+	static JLabel elabel = new JLabel("Weapon");
 
 	static JButton AMButton = new JButton("Attack");
 	static JButton BMButton = new JButton("Potion");
@@ -158,12 +158,14 @@ public class Window {
 		Pbox.setVisible(false);
 	}
 	
-	public void passError() {
-		
+	static void update() {
+		Phealth.setText("Player Health: " + Player.getHealth());
+		Ehealth.setText("Enemy Health: " + Zomble.getHealth());
 	}
 }
 
 class ActionClass implements ActionListener {
+	
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
@@ -174,44 +176,51 @@ class ActionClass implements ActionListener {
 		 
 		 case 1:
 			    Window.setAttackPlane();   
-			    Window.label.setText("Nothing");
 			    break;
 		 case 2: 
 			    Window.setPotionPlane();
-			    Window.label.setText("Nothing");
 			    break;
 		 case 3:
 			    System.exit(0);
 			    break;
 		 case 4:
-			    //TODO Program Attacks
-			 	Zomble.slash(Window.item);
-				Window.label.setText("Not Programmed Yet");
+			 	Zomble.slash(Player.currentSlot);
+			 	Window.setMainPlane();
+			 	Zomble.attack();
+			 	Window.update();
 				break;
 		 case 5:
-			    //TODO Program Attacks
-			 	Zomble.stab(Window.item);
-			 	Window.label.setText("Not Programmed Yet");
+			 	Zomble.stab(Player.currentSlot);
+			 	Window.setMainPlane();
+			 	Zomble.attack();
+			 	Window.update();
 			 	break;
 		 case 6:
-			    //TODO Program Attacks
-			 	Zomble.poke(Window.item);
-			 	Window.label.setText("Not Programmed Yet");
+			 	Zomble.poke(Player.currentSlot);
+			 	Window.setMainPlane();
+			 	Zomble.attack();
+			 	Window.update();
 			 	break;
 		 case 7:
 			    Window.setMainPlane();
 			    break;
 		 case 8:
-			    //TODO Program Potions
-			 	Window.label.setText("Not Programmed Yet");
+			 	Player.smallPotion();
+			 	Window.setMainPlane();
+			 	Zomble.attack();
+			 	Window.update();
 			 	break;
 		 case 9:
-			    //TODO Program Potions
-			 	Window.label.setText("Not Programmed Yet");
+				Player.mediumPotion();
+			 	Window.setMainPlane();
+			 	Zomble.attack();
+			 	Window.update();
 			 	break;
 		 case 10:
-			   	//TODO Program Potions
-			 	Window.label.setText("Not Programmed Yet");
+			 	Player.largePotion();
+			 	Window.setMainPlane();
+			 	Zomble.attack();
+			 	Window.update();
 			 	break;
 		 case 11:
 			    System.exit(10);
