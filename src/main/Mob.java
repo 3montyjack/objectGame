@@ -3,10 +3,10 @@ package main;
 
 public class Mob {
 	
-	static Attack attack = new Attack();
-	static Health health = new Health(100);
+	Attack attack = new Attack();
+	Health health = new Health(100);
 	Energy energy = new Energy();
-	static Potion potion = new Potion();
+	Potion potion = new Potion();
 
 	
 	
@@ -17,11 +17,11 @@ public class Mob {
 			return false;
 		}	
 	}
-	public static void looseHealth(int ammount) {
+	public void looseHealth(int ammount) {
 		health.looseHealth(ammount);
 	}
 	
-	public static void gainHealth(int ammount) {
+	public void gainHealth(int ammount) {
 		health.gainHealth(ammount);
 	}
 	
@@ -33,36 +33,33 @@ public class Mob {
 		energy.useEnergy(ammount);
 	}
 	
-	public static int getHealth() {
+	public int getHealth() {
 		return health.getHealth();
 
 	}
 	//These are on the player that it is casted on, like player.slash deducts from the players health
-	public static void slash(int item) {
+	public void slash(int item) {
 		looseHealth(attack.slash(item));
 	}
 	
-	public static void stab(int item) {
+	public void stab(int item) {
 		looseHealth(attack.stab(item));
 	}
 	
-	public static void poke(int item) {
+	public void poke(int item) {
 		looseHealth(attack.poke(item));
 	}
 
-	public static void smallPotion() {
+	public void smallPotion() {
 		gainHealth(potion.smallPotion());
 	}
 	
-	public static void mediumPotion() {
+	public void mediumPotion() {
 		gainHealth(potion.mediumPotion());
 	}
 	
-	public static void largePotion() {
+	public void largePotion() {
 		gainHealth(potion.largePotion());
 	}
-	
-	
-	
 	
 }

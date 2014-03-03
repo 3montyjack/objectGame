@@ -2,7 +2,7 @@ package main;
 
 public class Zomble extends Mob {
 	
-	static void attack() {
+	void attack() {
 		AI.makeMove();
 	}
 	

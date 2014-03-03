@@ -2,12 +2,13 @@ package main;
 
 public class AI {
 
+	@SuppressWarnings("unused")
 	private int checkPHealth() {
 		// TODO Auto-generated method stub
 		return Player.getHealth();
 	}
 
-	static void makeMove()
+	void makeMove()
 	{
 		// TODO Auto-generated method stub
 		if  (checkHealth() <= 10) 
@@ -18,13 +19,13 @@ public class AI {
 		}
 	}
 
+	@SuppressWarnings("unused")
 	private void checkEnergy() {
 		// TODO Make energy checks
-		
-		
+			
 	}
 
-	private static int checkHealth() {
+	private int checkHealth() {
 		// TODO Auto-generated method stub
 		return Zomble.getHealth();
 	}

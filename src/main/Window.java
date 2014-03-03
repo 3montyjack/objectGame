@@ -21,8 +21,8 @@ public class Window {
 	static JLayeredPane attackP = new JLayeredPane();
 	static JLayeredPane potionP = new JLayeredPane();
 	
-	static JLabel Phealth = new JLabel("Player Health: " + Player.getHealth());
-	static JLabel Ehealth = new JLabel("Enemy Health: " + Zomble.getHealth());
+	JLabel Phealth = new JLabel("Player Health: " + Player.getHealth());
+	JLabel Ehealth = new JLabel("Enemy Health: " + Zomble.getHealth());
 	static JLabel label = new JLabel("No Error");
 	static JLabel elabel = new JLabel("Weapon");
 
@@ -158,7 +158,7 @@ public class Window {
 		Pbox.setVisible(false);
 	}
 	
-	static void update() {
+	void update() {
 		Phealth.setText("Player Health: " + Player.getHealth());
 		Ehealth.setText("Enemy Health: " + Zomble.getHealth());
 	}

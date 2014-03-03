@@ -22,7 +22,7 @@ public class ItemList {
 
 	}
 	
-	public static Item fetch(int index)
+	public Item fetch(int index)
 	{
 		if(index<ItemList.items.length)
 	      {
@@ -37,20 +37,20 @@ public class ItemList {
 		return damage;
 	}
 	
-	public static int getEnergy(int item)
+	public int getEnergy(int item)
 	{
 		int energy = items[item].getEnergy();
 		return energy;
 	}
 	
-	public static int getType(int item) 
+	public int getType(int item) 
 	{
 		int type = items[item].getType();
 		return type;
 		
 	}
 	
-	public static String getName(int item)
+	public String getName(int item)
 	{
 		String name = items[item].getName();
 		return name;
