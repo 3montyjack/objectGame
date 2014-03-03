@@ -16,12 +16,15 @@ public class Window implements ActionListener{
 	
 	JFrame window = new JFrame();
 	
+	Zomble zomble = new Zomble();
+	Player player = new Player();
+	
 	JLayeredPane mainP = new JLayeredPane();
 	JLayeredPane attackP = new JLayeredPane();
 	JLayeredPane potionP = new JLayeredPane();
 	
-	JLabel Phealth = new JLabel("Player Health: " + Player.getHealth());
-	JLabel Ehealth = new JLabel("Enemy Health: " + Zomble.getHealth());
+	JLabel Phealth = new JLabel("Player Health: " + player.getHealth());
+	JLabel Ehealth = new JLabel("Enemy Health: " + zomble.getHealth());
 	JLabel label = new JLabel("No Error");
 	JLabel elabel = new JLabel("Weapon");
 
@@ -44,7 +47,7 @@ public class Window implements ActionListener{
 	Box Pbox = Box.createVerticalBox();
 	
 	
-	public Window() {
+	public void Start() {
 		window.setTitle("MMO");
 		window.setSize(500, 500);
 		window.setResizable(false);
@@ -89,19 +92,19 @@ public class Window implements ActionListener{
 		Ehealth.setBounds(350, 0 , 150, 30);
 		Phealth.setBounds(350, 30 , 150, 30);
 		
-		AMButton.addActionListener(actionEvent);
-		BMButton.addActionListener(actionEvent);
-		CMButton.addActionListener(actionEvent);
+		AMButton.addActionListener(this);
+		BMButton.addActionListener(this);
+		CMButton.addActionListener(this);
 		
-		AAButton.addActionListener(actionEvent);
-		BAButton.addActionListener(actionEvent);
-		CAButton.addActionListener(actionEvent);
-		DAButton.addActionListener(actionEvent);
+		AAButton.addActionListener(this);
+		BAButton.addActionListener(this);
+		CAButton.addActionListener(this);
+		DAButton.addActionListener(this);
 		
-		APButton.addActionListener(actionEvent);
-		BPButton.addActionListener(actionEvent);
-		CPButton.addActionListener(actionEvent);
-		DPButton.addActionListener(actionEvent);
+		APButton.addActionListener(this);
+		BPButton.addActionListener(this);
+		CPButton.addActionListener(this);
+		DPButton.addActionListener(this);
 		
 		AMButton.setActionCommand("1");
 		BMButton.setActionCommand("2");
@@ -155,8 +158,8 @@ public class Window implements ActionListener{
 	}
 	
 	public void update() {
-		Phealth.setText("Player Health: " + Player.getHealth());
-		Ehealth.setText("Enemy Health: " + Zomble.getHealth());
+		Phealth.setText("Player Health: " + player.getHealth());
+		Ehealth.setText("Enemy Health: " + zomble.getHealth());
 	}
 	
 	@Override
@@ -167,60 +170,49 @@ public class Window implements ActionListener{
 		 switch(action) {
 		 
 		 case 1:
-			    Window.setAttackPlane();   
-			    break;
+			    setAttackPlane();   
 		 case 2: 
-			    Window.setPotionPlane();
-			    break;
+			    setPotionPlane();
 		 case 3:
 			    System.exit(0);
-			    break;
 		 case 4:
-			 	Zomble.slash(Player.currentSlot);
-			 	Window.setMainPlane();
-			 	Zomble.attack();
-			 	Window.update();
-				break;
+			 	zomble.slash(player.currentSlot());
+			 	setMainPlane();
+			 	zomble.attack();
+			 	update();
 		 case 5:
-			 	Zomble.stab(Player.currentSlot);
-			 	Window.setMainPlane();
-			 	Zomble.attack();
-			 	Window.update();
-			 	break;
+			 	zomble.stab(player.currentSlot());
+			 	setMainPlane();
+			 	zomble.attack();
+			 	update();
 		 case 6:
-			 	Zomble.poke(Player.currentSlot);
-			 	Window.setMainPlane();
-			 	Zomble.attack();
-			 	Window.update();
-			 	break;
+			 	zomble.poke(player.currentSlot());
+			 	setMainPlane();
+			 	zomble.attack();
+			 	update();
 		 case 7:
-			    Window.setMainPlane();
-			    break;
+			    setMainPlane();
 		 case 8:
-			 	Player.smallPotion();
-			 	Window.setMainPlane();
-			 	Zomble.attack();
-			 	Window.update();
-			 	break;
+			 	player.smallPotion();
+			 	setMainPlane();
+			 	zomble.attack();
+			 	update();
 		 case 9:
-				Player.mediumPotion();
-			 	Window.setMainPlane();
-			 	Zomble.attack();
-			 	Window.update();
-			 	break;
+				player.mediumPotion();
+			 	setMainPlane();
+			 	zomble.attack();
+			 	update();
 		 case 10:
-			 	Player.largePotion();
-			 	Window.setMainPlane();
-			 	Zomble.attack();
-			 	Window.update();
-			 	break;
+			 	player.largePotion();
+			 	setMainPlane();
+			 	zomble.attack();
+			 	update();
 		 case 11:
 			    System.exit(10);
-			    break;
 		 default:
 			 	System.out.println("Error");
-			 	break;
 		         
 		 }	
 	}
+	
 }

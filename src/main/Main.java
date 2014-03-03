@@ -8,6 +8,7 @@ public class Main {
         SwingUtilities.invokeLater(new Runnable() {
                 public void run() {
                     Window main=new Window();
+                    main.Start();
                 }
         });
     }

@@ -2,14 +2,16 @@ package main;
 
 public class Zomble extends Mob {
 	
+	AI ai = new AI();
+	
 	void attack() {
-		AI.makeMove();
+		ai.makeMove();
 	}
 	
 	
 }
 
-class AI {
+class AI extends Zomble{
 
 	@SuppressWarnings("unused")
 	private int checkPHealth() {
