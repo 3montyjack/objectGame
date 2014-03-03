@@ -5,26 +5,19 @@ public class Zomble extends Mob {
 	AI ai = new AI();
 	
 	void attack() {
-		ai.makeMove();
+		makeMove();
 	}
 	
-	
-}
-
-class AI extends Zomble{
-
 	@SuppressWarnings("unused")
 	private int checkPHealth() {
-		// TODO Auto-generated method stub
 		return Player.getHealth();
 	}
 
 	void makeMove()
 	{
-		// TODO Auto-generated method stub
 		if  (checkHealth() <= 10) 
 		{
-			Zomble.mediumPotion();
+			mediumPotion();
 		} else {
 			Player.stab(0);
 		}
@@ -38,7 +31,10 @@ class AI extends Zomble{
 
 	private int checkHealth() {
 		// TODO Auto-generated method stub
-		return Zomble.getHealth();
+		return getHealth();
 	}
+	
+	
 }
+
 
