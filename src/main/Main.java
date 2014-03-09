@@ -9,8 +9,8 @@ public class Main {
                 public void run() {
                 	New_Window window= new New_Window();
                     Window main=new Window();
-                    //main.Start();
-                    window.Start();
+                    main.Start();
+                    //window.Start();
                 }
         });
     }

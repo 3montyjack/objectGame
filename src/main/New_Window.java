@@ -59,13 +59,14 @@ public class New_Window implements ActionListener{
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		//This is giving me so much trouble
-		window.add(label);
-		window.add(elabel);
-		window.add(Ehealth);
-		window.add(Phealth);
+		mainP.add(label);
+		mainP.add(elabel);
+		mainP.add(Ehealth);
+		mainP.add(Phealth);
 		
-		window.add(Mbox);
-
+		mainP.add(Mbox);
+		
+		
 		
 		elabel.setAlignmentY(110);
 		
@@ -125,6 +126,8 @@ public class New_Window implements ActionListener{
 		AMButton.setBackground(Color.yellow);
 		BMButton.setBackground(Color.cyan);
 		CMButton.setBackground(Color.pink);
+		
+		mainP.setVisible(true);
 		
 		AMButton.setFocusable(false);
 		BMButton.setFocusable(false);

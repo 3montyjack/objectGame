@@ -19,7 +19,7 @@ public class ItemList {
 		items[0] = new Item(1, "Hand", 0, 0);
 		items[1] = new Item(1,"Sword", 5, 5);
 		items[2] = new Item(1,"Mace", 10, 10);
-		
+		items[10] = new Item(1,"Zombie Staf", 100, 10);
 
 	}
 	

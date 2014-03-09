@@ -2,7 +2,6 @@ package main;
 
 import java.awt.Color;
 import java.awt.Component;
-import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -170,7 +169,7 @@ public class Window implements ActionListener{
 		CAButton.setFocusable(false);
 		DAButton.setFocusable(false);
 		
-		ItemList.setup(10);
+		ItemList.setup(11);
 		
 		setMainPlane();
 		
@@ -263,10 +262,9 @@ public class Window implements ActionListener{
 	private void playerMove(int value) {
 	 	if (player.getDead()) {
 	 		label.setText("Player is Dead");
-	 	} else if (zomble.getDead()) {
 	 		AMButton.setEnabled(false);
 	 		BMButton.setEnabled(false);
- 		} else {
+	 	} else {
  			System.out.println("Player Attack");
  			switch (value) {
  			case 1:
@@ -296,6 +294,8 @@ public class Window implements ActionListener{
 	 	
 	 	if (zomble.getDead()) {
 	 		label.setText("Zombie is Dead");
+	 		AMButton.setEnabled(false);
+	 		BMButton.setEnabled(false);
 	 	} else if (player.getDead()){
 	 		AMButton.setEnabled(false);
 	 		BMButton.setEnabled(false);
