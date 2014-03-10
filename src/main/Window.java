@@ -11,6 +11,10 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
 
+import attackEng.ItemList;
+import attackEng.Player;
+import attackEng.Zomble;
+
 public class Window implements ActionListener{
 	
 	int item = 0;

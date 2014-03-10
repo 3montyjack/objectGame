@@ -1,9 +1,9 @@
-package main;
+package attackEng;
+
 
 
 public class Player extends Mob {
 
-	private int weapon;
 	Inventory inventory = new Inventory(10);
 	
 	public Player() {
@@ -12,7 +12,7 @@ public class Player extends Mob {
 	
 	public int currentSlot = 1;
 	
-	int currentSlot() {
+	public int currentSlot() {
 		return currentSlot;
 	}
 	

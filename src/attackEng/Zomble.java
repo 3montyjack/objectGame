@@ -1,4 +1,4 @@
-package main;
+package attackEng;
 
 import java.util.Random;
 
@@ -12,7 +12,7 @@ public class Zomble extends Mob {
 		player = inputs;
 	}
 	
-	void attack() {
+	public void attack() {
 		makeMove();
 	}
 	

@@ -1,4 +1,4 @@
-package main;
+package attackEng;
 
 public class ItemList {
 
@@ -48,7 +48,7 @@ public class ItemList {
 		
 	}
 	
-	public static String getName(int item)
+	public String getName(int item)
 	{
 		return items[item].getName();
 	}
