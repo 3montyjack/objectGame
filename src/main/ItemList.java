@@ -48,7 +48,7 @@ public class ItemList {
 		
 	}
 	
-	public String getName(int item)
+	public static String getName(int item)
 	{
 		return items[item].getName();
 	}

@@ -22,6 +22,10 @@ public class Mob {
 		health.looseHealth(ammount);
 	}
 	
+	public void setHealth(int ammount) {
+		health.setHealth(ammount);
+	}
+	
 	public void gainHealth(int ammount) {
 		health.gainHealth(ammount);
 	}

@@ -3,6 +3,7 @@ package main;
 
 public class Player extends Mob {
 
+	private int weapon;
 	Inventory inventory = new Inventory(10);
 	
 	public Player() {
@@ -26,6 +27,9 @@ public class Player extends Mob {
 		
 	}
 	
+	public int getWeapon() {
+		return currentSlot;
+	}
 	
 	
 	

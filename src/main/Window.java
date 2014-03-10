@@ -20,6 +20,7 @@ public class Window implements ActionListener{
 
 	Player player = new Player();
 	Zomble zomble = new Zomble(player);
+	ItemList items = new ItemList();
 	
 	JLayeredPane mainP = new JLayeredPane();
 	JLayeredPane attackP = new JLayeredPane();
@@ -29,10 +30,13 @@ public class Window implements ActionListener{
 	JLabel Ehealth = new JLabel("Enemy Health: " + zomble.getHealth());
 	JLabel label = new JLabel("No Error");
 	JLabel elabel = new JLabel("Weapon");
-
+	JLabel eWeapon = new JLabel("Enemy weapon: " + items.getName(zomble.getWeapon()));
+	JLabel pWeapon = new JLabel("Player weapon: " + items.getName(player.getWeapon()));
+	
 	JButton AMButton = new JButton("Attack");
 	JButton BMButton = new JButton("Potion");
 	JButton CMButton = new JButton("Exit");
+	JButton DMButton = new JButton("Restart");
 	
 	JButton APButton = new JButton("Small Potion");
 	JButton BPButton = new JButton("Medium Potion");
@@ -61,6 +65,8 @@ public class Window implements ActionListener{
 		window.add(elabel);
 		window.add(Ehealth);
 		window.add(Phealth);
+		window.add(eWeapon);
+		window.add(pWeapon);
 		
 		window.add(Abox);
 		window.add(Mbox);
@@ -76,6 +82,7 @@ public class Window implements ActionListener{
 		Mbox.add(AMButton);
 		Mbox.add(BMButton);
 		Mbox.add(CMButton);
+		Mbox.add(DMButton);
 		
 		Pbox.add(APButton);
 		Pbox.add(BPButton);
@@ -90,10 +97,13 @@ public class Window implements ActionListener{
 		label.setBounds(0, 0, 200, 30);
 		Ehealth.setBounds(350, 0 , 150, 30);
 		Phealth.setBounds(350, 30 , 150, 30);
+		eWeapon.setBounds(350, 60 , 150, 30);
+		pWeapon.setBounds(350, 90 , 150, 30);
 		
 		AMButton.addActionListener(this);
 		BMButton.addActionListener(this);
 		CMButton.addActionListener(this);
+		DMButton.addActionListener(this);
 		
 		AAButton.addActionListener(this);
 		BAButton.addActionListener(this);
@@ -108,6 +118,7 @@ public class Window implements ActionListener{
 		AMButton.setActionCommand("1");
 		BMButton.setActionCommand("2");
 		CMButton.setActionCommand("3");
+		DMButton.setActionCommand("11");
 		
 		AAButton.setActionCommand("4");
 		BAButton.setActionCommand("5");
@@ -121,7 +132,8 @@ public class Window implements ActionListener{
 		
 		AMButton.setAlignmentY(Component.TOP_ALIGNMENT);
 		BMButton.setAlignmentY(Component.CENTER_ALIGNMENT);
-		CMButton.setAlignmentY(Component.BOTTOM_ALIGNMENT);
+		CMButton.setAlignmentY(Component.CENTER_ALIGNMENT);
+		DMButton.setAlignmentY(Component.BOTTOM_ALIGNMENT);
 		
 		APButton.setAlignmentY(Component.TOP_ALIGNMENT);
 		BPButton.setAlignmentY(Component.CENTER_ALIGNMENT);
@@ -151,12 +163,9 @@ public class Window implements ActionListener{
 		
 		window.setBackground(Color.gray);
 		
-		AMButton.setBackground(Color.yellow);
-		BMButton.setBackground(Color.cyan);
-		CMButton.setBackground(Color.pink);
-		
 		AMButton.setFocusable(false);
 		BMButton.setFocusable(false);
+		CMButton.setFocusable(false);
 		CMButton.setFocusable(false);
 		
 		APButton.setFocusable(false);
@@ -197,6 +206,8 @@ public class Window implements ActionListener{
 	public void update() {
 		Phealth.setText("Player Health: " + player.getHealth());
 		Ehealth.setText("Enemy Health: " + zomble.getHealth());
+		eWeapon.setText("Enemy weapon: " + items.getName(player.getWeapon()));
+		pWeapon.setText("Player weapon: " + items.getName(player.getWeapon()));
 		
 	}
 	
@@ -250,12 +261,13 @@ public class Window implements ActionListener{
 			 update();
 			 break;
 		 case 11:
-			 System.exit(10);
+			 player.setHealth(100);
+			 zomble.setHealth(100);
+			 update();
 			 break;
 		 default:
 			 System.out.println("Error");
 			 break;
-		         
 		 }
 	}
 	

@@ -6,6 +6,7 @@ public class Zomble extends Mob {
 	
 	Random rand = new Random();
 	Player player;
+	private int weapon = 0;
 	
 	public Zomble(Player inputs) {
 		player = inputs;
@@ -38,6 +39,7 @@ public class Zomble extends Mob {
 			case 8:
 			case 9:
 				player.slash(2);
+				weapon = 2;
 				break;
 			case 10:
 			case 11:
@@ -50,6 +52,7 @@ public class Zomble extends Mob {
 			case 18:
 			case 19:
 				player.slash(1);
+				weapon = 1;
 				break;
 			case 20:
 			case 21:
@@ -62,12 +65,15 @@ public class Zomble extends Mob {
 			case 28:
 			case 29:
 				player.slash(2);
+				weapon = 2;
 				break;
 			case 30:
 				player.slash(10);
+				weapon = 10;
 				break;
 			default:
 				player.slash(2);
+				weapon = 2;
 				break;
 				
 			}
@@ -79,6 +85,10 @@ public class Zomble extends Mob {
 	private void checkEnergy() {
 		// TODO Make energy checks
 			
+	}
+	
+	public int getWeapon() {
+		return weapon;
 	}
 
 	private int checkHealth() {
