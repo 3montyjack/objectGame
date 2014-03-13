@@ -34,8 +34,8 @@ public class Window implements ActionListener{
 	JLabel Ehealth = new JLabel("Enemy Health: " + zomble.getHealth());
 	JLabel label = new JLabel("No Error");
 	JLabel elabel = new JLabel("Weapon");
-	JLabel eWeapon = new JLabel("Enemy weapon: " + items.getName(zomble.getWeapon()));
-	JLabel pWeapon = new JLabel("Player weapon: " + items.getName(player.getWeapon()));
+	JLabel eWeapon = new JLabel("Enemy weapon: ");
+	JLabel pWeapon = new JLabel("Player weapon: ");
 	
 	JButton AMButton = new JButton("Attack");
 	JButton BMButton = new JButton("Potion");
@@ -267,6 +267,8 @@ public class Window implements ActionListener{
 		 case 11:
 			 player.setHealth(100);
 			 zomble.setHealth(100);
+			 AMButton.setEnabled(true);
+			 BMButton.setEnabled(true);
 			 update();
 			 break;
 		 default:
@@ -317,6 +319,7 @@ public class Window implements ActionListener{
 	 		BMButton.setEnabled(false);
 	 	} else {
 		 	zomble.attack();
+		 	update();
 	 	}
 	}
 	
