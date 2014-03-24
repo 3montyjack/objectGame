@@ -7,6 +7,7 @@ public class Zomble extends Mob {
 	Random rand = new Random();
 	Player player;
 	private int weapon = 0;
+	private int r;
 	
 	public Zomble(Player inputs) {
 		player = inputs;
@@ -23,12 +24,15 @@ public class Zomble extends Mob {
 
 	void makeMove()
 	{
-		if  (checkHealth() <= 10) 
+		if  (getHealth() <= 10) 
 		{
+			setAction(2);
 			largePotion();
 		} else {
-			
-			switch (rand.nextInt(30)) {
+			setAction(1);
+			r = Math.round(rand.nextInt(30));
+			System.out.println(r);
+			switch (r) {
 			case 1:
 			case 2:
 			case 3:
@@ -46,15 +50,14 @@ public class Zomble extends Mob {
 			case 12:
 			case 13:
 			case 14:
-			case 15:
 			case 16:
 			case 17:
 			case 18:
 			case 19:
+			case 20:
 				player.slash(1);
 				weapon = 1;
 				break;
-			case 20:
 			case 21:
 			case 22:
 			case 23:
@@ -64,10 +67,11 @@ public class Zomble extends Mob {
 			case 27:
 			case 28:
 			case 29:
+			case 30:
 				player.slash(2);
 				weapon = 2;
 				break;
-			case 30:
+			case 15:
 				player.slash(10);
 				weapon = 10;
 				break;
@@ -91,9 +95,16 @@ public class Zomble extends Mob {
 		return weapon;
 	}
 
-	private int checkHealth() {
-		return getHealth();
+	
+	public boolean checkOverkill() {
+		if (r == 15) {
+			return true;
+		} else {
+			return false;
+		}
 	}
+	
+	
 	
 	
 }

@@ -6,12 +6,9 @@ public class ItemList {
 	
 
 	
-	public static void setup (int maxItems) 
-	{
+	public static void setup (int maxItems) {
 		ItemList.items = new Item[maxItems];
-		for (int i = 0; i < maxItems; i++)
-		{
-			//Default item?
+		for (int i = 0; i < maxItems; i++) {
 			//Item type, Item Name, Item Bonus Damage, Item Energy
 			ItemList.items[i] = new Item(0,null, 0, 0);
 		}
@@ -23,33 +20,27 @@ public class ItemList {
 
 	}
 	
-	public Item fetch(int index)
-	{
-		if(index<ItemList.items.length)
-	      {
+	public Item fetch(int index) {
+		if(index<ItemList.items.length) {
 	                return ItemList.items[index];
 	      }
 	      return null;
 	}
 	
-	public static int getDamage(int item) 
-	{
+	public static int getDamage(int item) {
 		return items[item].getDamage();
 	}
 	
-	public int getEnergy(int item)
-	{
+	public static int getEnergy(int item) {
 		return items[item].getEnergy();
 	}
 	
-	public int getType(int item) 
-	{
+	public int getType(int item) {
 		return items[item].getType();
 		
 	}
 	
-	public String getName(int item)
-	{
+	public String getName(int item) {
 		return items[item].getName();
 	}
 }
