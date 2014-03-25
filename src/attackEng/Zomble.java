@@ -13,7 +13,7 @@ public class Zomble extends Mob {
 		player = inputs;
 	}
 	
-	public void attack() {
+	public void move() {
 		makeMove();
 	}
 	

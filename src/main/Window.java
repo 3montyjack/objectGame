@@ -151,17 +151,17 @@ public class Window implements ActionListener{
 			 break;
 		 case 4:
 			 System.out.println("004");
-			 playerMove(4);
+			 action(4);
 			 setPlane(0);
 			 update();
 			 break;
 		 case 5:
-			 playerMove(5);
+			 action(5);
 			 setPlane(0);
 			 update();
 			 break;
 		 case 6:
-			 playerMove(6);
+			 action(6);
 			 setPlane(0);
 			 update();
 			 break;
@@ -169,17 +169,17 @@ public class Window implements ActionListener{
 			 setPlane(0);
 			 break;
 		 case 8:
-			 playerMove(1);
+			 action(1);
 			 setPlane(0);
 			 update();
 			 break;
 		 case 9:
-			 playerMove(2);
+			 action(2);
 			 setPlane(0);
 			 update();
 			 break;
 		 case 10:
-			 playerMove(3);
+			 action(3);
 			 setPlane(0);
 			 update();
 			 break;
@@ -196,44 +196,13 @@ public class Window implements ActionListener{
 		 }
 	}
 	
-	private void playerMove(int value) {
+	private void action(int pMove) {
 	 	if (player.getDead()) {
 	 		label.setText("Player is Dead");
 	 		AButton.setEnabled(false);
 	 		BButton.setEnabled(false);
 	 	} else {
- 			System.out.println("Attack");
- 			switch (value) {
- 			case 1:
- 				System.out.println("002");
- 				zomble.slash(player.currentSlot());
- 				player.setAction(1);
- 				break;
- 			case 2:
- 				zomble.stab(player.currentSlot());
- 				player.setAction(1);
- 				break;
- 			case 3:
- 				zomble.poke(player.currentSlot());
- 				player.setAction(1);
- 				break;
- 			case 4:
- 				player.smallPotion();
- 				player.setAction(2);
- 				break;
- 			case 5:
- 				player.mediumPotion();
- 				player.setAction(2);
- 				break;
- 			case 6:
- 				player.largePotion();
- 				player.setAction(2);
- 				break;
- 			default:
- 				label.setText("error 001");	
- 				break;
- 			}
-		 	
+		 	playerMove(pMove);
 	 	}
 	 	
 	 	if (zomble.getDead()) {
@@ -244,13 +213,47 @@ public class Window implements ActionListener{
 	 		AButton.setEnabled(false);
 	 		BButton.setEnabled(false);
 	 	} else {
-		 	zomble.attack();
+		 	zomble.move();
 		 	update();
 		 	if (player.getDead()) {
 		 		AButton.setEnabled(false);
 		 		BButton.setEnabled(false);
 		 	}
 	 	}
+	}
+	
+	public void playerMove(int value) {
+		System.out.println("Attack");
+		switch (value) {
+			case 1:
+				System.out.println("002");
+				zomble.slash(player.currentSlot());
+				player.setAction(1);
+				break;
+			case 2:
+				zomble.stab(player.currentSlot());
+				player.setAction(1);
+				break;
+			case 3:
+				zomble.poke(player.currentSlot());
+				player.setAction(1);
+				break;
+			case 4:
+				player.smallPotion();
+				player.setAction(2);
+				break;
+			case 5:
+				player.mediumPotion();
+				player.setAction(2);
+				break;
+			case 6:
+				player.largePotion();
+				player.setAction(2);
+				break;
+			default:
+				label.setText("error 001");	
+				break;
+		}
 	}
 	
 	public void update() {
