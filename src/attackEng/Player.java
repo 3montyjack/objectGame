@@ -19,9 +19,7 @@ public class Player extends Mob {
 	public boolean addItem(Item item) {
 		if (inventory.add(item)) {
 			return true;
-		}
-		else
-		{
+		} else {
 			return false;
 		}
 		
