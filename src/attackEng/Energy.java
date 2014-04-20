@@ -3,22 +3,42 @@ package attackEng;
 public class Energy {
 
 	int energy;
+	int DefaultEnergyGainPerTurn;
 	
-	int getHealth() {
+	public Energy() {
+		energy = 100;
+	}
+	
+	public Energy(int initialValue) {
+		energy = initialValue;
+	}
+	
+	int getEnergy() {
 		return energy;
 	}
 	
-	
-	void setEnergy(int ammount) {
+	public void setEnergy(int ammount) {
 		energy = ammount;
-		
 	}
 	
-	void useEnergy(int ammount) {
+	public void useEnergy(int ammount) {
 		energy = energy - ammount;
 	}
 	
-	void gainEnergy(int ammount) {
+	public void gainEnergy(int ammount) {
 		energy = energy + ammount;
+	}
+	
+	//DefaultEnergyGainPerTurn
+	public void setDEGPT(int defaultNum) {
+		DefaultEnergyGainPerTurn = defaultNum;
+	}
+	
+	private int getDEGPT() {
+		return DefaultEnergyGainPerTurn;
+	}
+	
+	public void energyTurn() {
+		energy = energy + getDEGPT();
 	}
 }

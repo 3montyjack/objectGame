@@ -17,7 +17,7 @@ public class Window implements ActionListener{
 	int screen = 0;
 	
 	JFrame window = new JFrame();
-
+	
 	Player player = new Player();
 	Zomble zomble = new Zomble(player);
 	ItemList items = new ItemList();
@@ -184,10 +184,7 @@ public class Window implements ActionListener{
 			 update();
 			 break;
 		 case 11:
-			 player.setHealth(100);
-			 zomble.setHealth(100);
-			 AButton.setEnabled(true);
-			 BButton.setEnabled(true);
+			 restart();
 			 update();
 			 break;
 		 default:
@@ -254,6 +251,13 @@ public class Window implements ActionListener{
 				label.setText("error 001");	
 				break;
 		}
+	}
+	
+	public void restart() {
+		 player.setHealth(100);
+		 zomble.setHealth(100);
+		 AButton.setEnabled(true);
+		 BButton.setEnabled(true);
 	}
 	
 	public void update() {
