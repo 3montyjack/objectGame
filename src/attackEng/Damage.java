@@ -1,6 +1,6 @@
 package attackEng;
 
-public class Attack {
+public class Damage {
 	
 	public int slashDmg(int item) {
 		int sD = 15;

@@ -104,6 +104,12 @@ public class Zomble extends Mob {
 		}
 	}
 	
+	@Override
+	public String getAction() {
+		System.out.println("005");
+		return action;
+	}
+	
 	
 	
 	

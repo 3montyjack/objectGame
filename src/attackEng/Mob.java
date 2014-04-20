@@ -4,11 +4,11 @@ package attackEng;
 
 public class Mob {
 	
-	private Attack attack = new Attack();
+	private Damage attack = new Damage();
 	private Health health = new Health(100);
 	private Energy energy = new Energy();
 	private Potion potion = new Potion();
-	private String action;
+	protected String action;
 	
 	
 	public void looseHealth(int ammount) {
@@ -64,32 +64,39 @@ public class Mob {
 	public void slash(int item) {
 		System.out.println("003");
 		looseHealth(attack.slashDmg(item));
+		setAction(1);
 	}
 	
 	public void stab(int item) {
 		looseHealth(attack.stabDmg(item));
+		setAction(1);
 	}
 	
 	public void poke(int item) {
 		looseHealth(attack.pokeDmg(item));
+		setAction(1);
 	}
 
 	public void smallPotion() {
 		gainHealth(potion.smallPotion());
+		setAction(2);
 	}
 	
 	public void mediumPotion() {
 		gainHealth(potion.mediumPotion());
+		setAction(2);
 	}
 	
 	public void largePotion() {
 		gainHealth(potion.largePotion());
+		setAction(2);
 	}
 	
 	public void setAction(int value) {
 		//1 = attack, 2 = potion
 		switch (value) {
 			case 1:
+				System.out.println("006");
 				action = "Attack";
 			case 2:
 				action = "Potion";

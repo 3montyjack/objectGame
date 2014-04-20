@@ -8,6 +8,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
+import attackEng.AttackEng;
 import attackEng.ItemList;
 import attackEng.Player;
 import attackEng.Zomble;
@@ -18,12 +19,10 @@ public class Window implements ActionListener{
 	
 	JFrame window = new JFrame();
 	
-	Player player = new Player();
-	Zomble zomble = new Zomble(player);
-	ItemList items = new ItemList();
+	AttackEng eng = new AttackEng();
 	
-	JLabel Phealth = new JLabel("Player Health: " + player.getHealth());
-	JLabel Ehealth = new JLabel("Enemy Health: " + zomble.getHealth());
+	JLabel pHealth = new JLabel("Player Health: " + eng.getPHealth());
+	JLabel eHealth = new JLabel("Enemy Health: " + eng.getZHealth());
 	JLabel label = new JLabel("No Error");
 	JLabel elabel = new JLabel("Weapon");
 	JLabel eWeapon = new JLabel("Enemy weapon: None");
@@ -66,8 +65,8 @@ public class Window implements ActionListener{
 		pBox.add(CButton);
 		pBox.add(DButton);
 		
-		lBox.add(Ehealth);
-		lBox.add(Phealth);
+		lBox.add(eHealth);
+		lBox.add(pHealth);
 		lBox.add(eWeapon);
 		lBox.add(pWeapon);
 		lBox.add(eMove);
@@ -194,7 +193,7 @@ public class Window implements ActionListener{
 	}
 	
 	private void action(int pMove) {
-	 	if (player.getDead()) {
+	 	if (eng.getPDead()) {
 	 		label.setText("Player is Dead");
 	 		AButton.setEnabled(false);
 	 		BButton.setEnabled(false);
@@ -202,17 +201,17 @@ public class Window implements ActionListener{
 		 	playerMove(pMove);
 	 	}
 	 	
-	 	if (zomble.getDead()) {
+	 	if (eng.getZDead()) {
 	 		label.setText("Zombie is Dead");
 	 		AButton.setEnabled(false);
 	 		BButton.setEnabled(false);
-	 	} else if (player.getDead()) {
+	 	} else if (eng.getPDead()) {
 	 		AButton.setEnabled(false);
 	 		BButton.setEnabled(false);
 	 	} else {
-		 	zomble.move();
+		 	eng.zMove();
 		 	update();
-		 	if (player.getDead()) {
+		 	if (eng.getPDead()) {
 		 		AButton.setEnabled(false);
 		 		BButton.setEnabled(false);
 		 	}
@@ -221,52 +220,23 @@ public class Window implements ActionListener{
 	
 	public void playerMove(int value) {
 		System.out.println("Attack");
-		switch (value) {
-			case 1:
-				System.out.println("002");
-				zomble.slash(player.currentSlot());
-				player.setAction(1);
-				break;
-			case 2:
-				zomble.stab(player.currentSlot());
-				player.setAction(1);
-				break;
-			case 3:
-				zomble.poke(player.currentSlot());
-				player.setAction(1);
-				break;
-			case 4:
-				player.smallPotion();
-				player.setAction(2);
-				break;
-			case 5:
-				player.mediumPotion();
-				player.setAction(2);
-				break;
-			case 6:
-				player.largePotion();
-				player.setAction(2);
-				break;
-			default:
-				label.setText("error 001");	
-				break;
-		}
+		eng.pMove(value);
 	}
 	
 	public void restart() {
-		 player.setHealth(100);
-		 zomble.setHealth(100);
+		 eng.setPHealth(100);
+		 eng.setZHealth(100);
 		 AButton.setEnabled(true);
 		 BButton.setEnabled(true);
 	}
 	
 	public void update() {
-		Phealth.setText("Player Health: " + player.getHealth());
-		Ehealth.setText("Enemy Health: " + zomble.getHealth());
-		eWeapon.setText("Enemy weapon: " + items.getName(zomble.getWeapon()));
-		pWeapon.setText("Player weapon: " + items.getName(player.getWeapon()));
-		eMove.setText("Enemy move: " + zomble.getAction());
-		pMove.setText("Player move: " + player.getAction());
+		pHealth.setText("Player Health: " + eng.getPHealth());
+		eHealth.setText("Enemy Health: " + eng.getZHealth());
+		pWeapon.setText("Player weapon: " + eng.getPWeapon());
+		eWeapon.setText("Enemy weapon: " + eng.getZWeapon());
+		eMove.setText("Enemy move: " + eng.getZAction());
+		pMove.setText("Player move: " + eng.getPAction());
 		
 	}
 	
