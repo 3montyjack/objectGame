@@ -4,11 +4,11 @@ package attackEng;
 
 public class Mob {
 	
-	Attack attack = new Attack();
-	Health health = new Health(100);
-	Energy energy = new Energy();
-	Potion potion = new Potion();
-	String action;
+	private Attack attack = new Attack();
+	private Health health = new Health(100);
+	private Energy energy = new Energy();
+	private Potion potion = new Potion();
+	private String action;
 	
 	
 	public void looseHealth(int ammount) {
@@ -40,7 +40,7 @@ public class Mob {
 	}
 	
 	public int getEnergy() {
-		return energy.getHealth();
+		return energy.getEnergy();
 	}
 	
 	public boolean getDead() {
@@ -94,7 +94,7 @@ public class Mob {
 			case 2:
 				action = "Potion";
 			default: 
-				action = null;
+				action = "Null";
 		}
 	}
 	
