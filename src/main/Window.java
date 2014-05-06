@@ -10,12 +10,10 @@ import javax.swing.JLabel;
 
 import attackEng.AttackEng;
 import attackEng.ItemList;
-import attackEng.Player;
-import attackEng.Zomble;
 
 public class Window implements ActionListener{
 	
-	int screen = 0;
+	private int screen = 0;
 	
 	JFrame window = new JFrame();
 	
@@ -152,17 +150,14 @@ public class Window implements ActionListener{
 			 System.out.println("004");
 			 action(4);
 			 setPlane(0);
-			 update();
 			 break;
 		 case 5:
 			 action(5);
 			 setPlane(0);
-			 update();
 			 break;
 		 case 6:
 			 action(6);
 			 setPlane(0);
-			 update();
 			 break;
 		 case 7:
 			 setPlane(0);
@@ -170,21 +165,17 @@ public class Window implements ActionListener{
 		 case 8:
 			 action(1);
 			 setPlane(0);
-			 update();
 			 break;
 		 case 9:
 			 action(2);
 			 setPlane(0);
-			 update();
 			 break;
 		 case 10:
 			 action(3);
 			 setPlane(0);
-			 update();
 			 break;
 		 case 11:
 			 restart();
-			 update();
 			 break;
 		 default:
 			 System.out.println("Error");
@@ -192,7 +183,7 @@ public class Window implements ActionListener{
 		 }
 	}
 	
-	private void action(int pMove) {
+	public void action(int pMove) {
 	 	if (eng.getPDead()) {
 	 		label.setText("Player is Dead");
 	 		AButton.setEnabled(false);
@@ -210,12 +201,12 @@ public class Window implements ActionListener{
 	 		BButton.setEnabled(false);
 	 	} else {
 		 	eng.zMove();
-		 	update();
 		 	if (eng.getPDead()) {
 		 		AButton.setEnabled(false);
 		 		BButton.setEnabled(false);
 		 	}
 	 	}
+	 	update();
 	}
 	
 	public void playerMove(int value) {

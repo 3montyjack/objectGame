@@ -8,7 +8,7 @@ public class Mob {
 	private Health health = new Health(100);
 	private Energy energy = new Energy();
 	private Potion potion = new Potion();
-	protected String action;
+	public String action;
 	
 	
 	public void looseHealth(int ammount) {
@@ -52,7 +52,7 @@ public class Mob {
 		}	
 	}
 	
-	public boolean getNotEnoughEnergy(int drain) {
+	public boolean getEEnergy(int drain) {
 		if (getEnergy()<= drain) {
 			return true;
 		} else {
