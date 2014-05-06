@@ -10,7 +10,7 @@ public class Player extends Mob {
 		
 	}
 	
-	public int currentSlot = 1;
+	private int currentSlot = 1;
 	
 	public int currentSlot() {
 		return currentSlot;
