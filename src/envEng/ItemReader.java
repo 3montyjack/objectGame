@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
-public class MazeReader {
+public class ItemReader {
 
 	InputStream inputStr = null; 
     InputStreamReader inputStrRead = null;
@@ -15,14 +15,13 @@ public class MazeReader {
     String textPath = "src/envEng/text.txt";
     ByteArrayOutputStream bao = new ByteArrayOutputStream();
     
-    private int max = 2000;
-    private byte[] val = new byte[max];
-	private String[][] result;
+    StringBuilder buffInput = new StringBuilder();
+	String[] split = new String[12];
     
     int i = 0;
     
 
-    public MazeReader() throws IOException {
+    public ItemReader() throws IOException {
     	
 	    try{
 	       inputStr = new FileInputStream(textPath);
@@ -33,12 +32,11 @@ public class MazeReader {
 	       
 	       // reads to the end of the stream 
 
-	       int a = 0;
 	       while((value = buffReader.read()) != -1)
 	       {
 	    	   
-		          val[a] = (byte) value;
-		          a++;
+		          buffInput.append((char) value);
+		  	      
 	       }
 	       
 	    } catch(Exception e) {
@@ -53,26 +51,19 @@ public class MazeReader {
 	       if(buffReader!=null)
 	          buffReader.close();
 	    }
-	    inputTo2D();	    
+	    
+	    inputToString();	    
 	    
     }
     
-	private void inputTo2D() {
-	    String input = val.toString();
-		String[] split = input.split(";");
-		int size = split.length;
-		result = new String [size][];
-		
-		
-		int count = 0;
-		for (String line : split) {
-			result[count] = line.split(":");
-			count++;
-			
-		}
+	private void inputToString() {
+	    String input = buffReader.toString();
+		split = input.split(",");
+		//String var = split[3];
 	}
 	
 	public String getResult(int item, int value) {
-		return result[item][value];
+		int actualItem = 4*item + value;
+		return split[actualItem];
 	}
 }
