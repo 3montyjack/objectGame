@@ -1,0 +1,4 @@
+1,Hand,0,0;
+1,Sword,5,5;
+1,Mace,10,10;
+1,Zombie Staf,100,10;
