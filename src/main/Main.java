@@ -20,7 +20,7 @@ public class Main {
 					}
                     Window wind = new Window();
                     //wind.Start();
-                    maze.getResult(2, 2);
+                    System.out.println(maze.getResult(2, 2));
                     
                 }
         });
