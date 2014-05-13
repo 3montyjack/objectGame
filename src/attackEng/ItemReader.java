@@ -1,4 +1,4 @@
-package envEng;
+package attackEng;
 
 import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
@@ -12,14 +12,13 @@ public class ItemReader {
 	InputStream inputStr = null; 
     InputStreamReader inputStrRead = null;
     BufferedReader buffReader = null;
-    String textPath = "src/envEng/text.txt";
+    String textPath = "src/attackEng/text.txt";
     ByteArrayOutputStream bao = new ByteArrayOutputStream();
     
     StringBuilder buffInput = new StringBuilder();
-	String[] split = new String[12];
-    
-    int i = 0;
-    
+	String[] split = new String[200];
+	
+	private String value;
 
     public ItemReader() throws IOException {
     	
@@ -28,16 +27,15 @@ public class ItemReader {
 	       inputStrRead = new InputStreamReader(inputStr);
 	       buffReader = new BufferedReader(inputStrRead);
 	    
-	       int value=0;
 	       
-	       // reads to the end of the stream 
 
-	       while((value = buffReader.read()) != -1)
+	       while((value = buffReader.readLine()) != null)
 	       {
 	    	   
-		          buffInput.append((char) value);
-		  	      
+		          buffInput.append(value);
+		  	      System.out.println(value);
 	       }
+	       inputToString();
 	       
 	    } catch(Exception e) {
 	    	System.out.println("ERROR");
@@ -50,20 +48,29 @@ public class ItemReader {
 	          inputStrRead.close();
 	       if(buffReader!=null)
 	          buffReader.close();
-	    }
-	    
-	    inputToString();	    
-	    
+	    }    
+	    getLengthString();
     }
     
 	private void inputToString() {
-	    String input = buffReader.toString();
+	    String input = buffInput.toString();
+	    //System.out.println(input);
 		split = input.split(",");
-		//String var = split[3];
+		
+	}
+	
+	public int getLengthString() {
+		System.out.println(split.length);
+		return split.length;
 	}
 	
 	public String getResult(int item, int value) {
 		int actualItem = 4*item + value;
+		//System.out.println(actualItem);
+		//for(int x=0;x<getLengthString();x++){
+			//System.out.println(split[x]);
+		//}
+
 		return split[actualItem];
 	}
 }
