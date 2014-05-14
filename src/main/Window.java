@@ -33,6 +33,8 @@ public class Window implements ActionListener{
 	JButton CButton = new JButton("Exit");
 	JButton DButton = new JButton("Restart");
 	
+	ItemList list = new ItemList();
+	
 	Box pBox = Box.createVerticalBox();
 	Box lBox = Box.createVerticalBox();
 	
@@ -80,7 +82,6 @@ public class Window implements ActionListener{
 		CButton.addActionListener(this);
 		DButton.addActionListener(this);
 		
-		ItemList.setup(11);
 	}
 	
 	public void setPlane(int mode) {
@@ -94,9 +95,9 @@ public class Window implements ActionListener{
 			CButton.setActionCommand("6");
 			DButton.setActionCommand("7");
 			
-			AButton.setText("Small Potion");
-			BButton.setText("Medium Potion");
-			CButton.setText("Large Potion");
+			AButton.setText(ItemList.getName(10));
+			BButton.setText(ItemList.getName(11));
+			CButton.setText(ItemList.getName(12));
 			DButton.setText("Back");
 			
 			DButton.setVisible(true);

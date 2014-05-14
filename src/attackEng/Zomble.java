@@ -76,8 +76,7 @@ public class Zomble extends Mob {
 				weapon = 10;
 				break;
 			default:
-				player.slash(2);
-				weapon = 2;
+				System.out.println("Error in Zomble");
 				break;
 				
 			}

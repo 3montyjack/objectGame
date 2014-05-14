@@ -31,4 +31,8 @@ public class Damage {
 		int sD = 5;
 		return ItemList.getEnergy(item) + sD;
 	}
+	
+	public int Potion(int item) {
+		return ItemList.getDamage(item);
+	}
 }

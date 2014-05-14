@@ -8,13 +8,14 @@ import java.io.InputStreamReader;
 
 public class ItemReader {
 
-	InputStream inputStr = null; 
-    InputStreamReader inputStrRead = null;
-    BufferedReader buffReader = null;
-    String textPath = "src/attackEng/text.txt";
+	private InputStream inputStr = null; 
+    private InputStreamReader inputStrRead = null;
+    private BufferedReader buffReader = null;
+    private String textPath = "src/attackEng/text.txt";
     
-    StringBuilder buffInput = new StringBuilder();
-	String[] split = new String[200];
+    private StringBuilder buffInput = new StringBuilder();
+	private static String[] split = new String[200];
+	private static String[][] twoD = null;
 	
 	private String value;
 
@@ -33,7 +34,7 @@ public class ItemReader {
 		          buffInput.append(value);
 		  	      //System.out.println(value);
 	       }
-	       inputToString();
+	       inputStringTo2D();
 	       
 	    } catch(Exception e) {
 	    	System.out.println("ERROR");
@@ -47,22 +48,35 @@ public class ItemReader {
 	       if(buffReader!=null)
 	          buffReader.close();
 	    }    
+	    //System.out.println(getAItems());
     }
-    
-	private void inputToString() {
+	
+	public void inputStringTo2D() {
 	    String input = buffInput.toString();
 		split = input.split(",");
 		
+		twoD = new String[getAItems()][getAItems()];
+		
+		for (int i = 0; i < getAItems(); i++) {
+			for (int a = 0; a < 4; a++) {
+				twoD[i][a] = split[(i*4)+a];
+				System.out.print(split[(i*4)+a]);
+			}
+			System.out.println();
+		}
 	}
 	
-	public int getLengthString() {
+	public int getAItems() {
 		//System.out.println(split.length);
-		return split.length;
+		return split.length/4;
 	}
 	
-	public String getResult(int item, int value) {
-		int actualItem = (4*item)-4+value-1;
-		String out = split[actualItem].trim();
+	public static String getResultStr(int item, int value) {
+		String out = twoD[item][value].trim();
 		return out;
+	}
+	
+	public static int getResultInt(int item, int value) {
+		return Integer.parseInt(getResultStr(item,value));
 	}
 }

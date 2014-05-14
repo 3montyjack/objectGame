@@ -4,7 +4,6 @@ public class Inventory {
 
 	private Item[] items;
 	private int firstFree;
-	ItemList itemss = new ItemList();
 	
 	public Inventory(int size) {
 		

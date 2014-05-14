@@ -4,11 +4,11 @@ package attackEng;
 
 public class Mob {
 	
-	private Damage attack = new Damage();
+	private Damage damage = new Damage();
 	private Health health = new Health(100);
 	private Energy energy = new Energy();
-	private Potion potion = new Potion();
-	public String action;
+	public String action = "1";
+
 	
 	
 	public void looseHealth(int ammount) {
@@ -62,33 +62,46 @@ public class Mob {
 	
 	//These are on the player that it is casted on, like player.slash deducts from the players health
 	public void slash(int item) {
-		System.out.println("003");
-		looseHealth(attack.slashDmg(item));
-		setAction(1);
+		if (checkItem(ItemList.getType(item)-1)) {
+			System.out.println("003");
+			looseHealth(damage.slashDmg(item));
+			setAction(1);
+		} else {
+			System.out.println("Item not a Weapon");
+		}
+
 	}
 	
 	public void stab(int item) {
-		looseHealth(attack.stabDmg(item));
-		setAction(1);
+		if (checkItem(ItemList.getType(item)-1)) {
+			looseHealth(damage.stabDmg(item));
+			setAction(1);
+		} else {
+			System.out.println("Item not a Weapon");
+		}
 	}
 	
 	public void poke(int item) {
-		looseHealth(attack.pokeDmg(item));
-		setAction(1);
+		if (checkItem(ItemList.getType(item)-1)) {
+			looseHealth(damage.pokeDmg(item));
+			setAction(1);
+		} else {
+			System.out.println("Item not a Weapon");
+		}
 	}
 
 	public void smallPotion() {
-		gainHealth(potion.smallPotion());
+		gainHealth(damage.Potion(10));
 		setAction(2);
 	}
 	
 	public void mediumPotion() {
-		gainHealth(potion.mediumPotion());
+		gainHealth(damage.Potion(11));
 		setAction(2);
 	}
 	
 	public void largePotion() {
-		gainHealth(potion.largePotion());
+		gainHealth(damage.Potion(12));
 		setAction(2);
 	}
 	
@@ -102,6 +115,14 @@ public class Mob {
 				action = "Potion";
 			default: 
 				action = "Null";
+		}
+	}
+	
+	private boolean checkItem(int type) {
+		if (type == 0) {
+			return true;
+		} else {
+			return false;
 		}
 	}
 	

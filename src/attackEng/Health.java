@@ -20,7 +20,6 @@ public class Health {
 	
 	void setHealth(int ammount) {
 		health = ammount;
-		
 	}
 	
 	void looseHealth(int ammount) {
