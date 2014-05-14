@@ -1,30 +1,40 @@
 package attackEng;
 
+import java.io.IOException;
+
 public class ItemList {
 
 	private static Item[] items = null;
 	
-
+	private static ItemReader input = null;
 	
-	public static void setup (int maxItems) {
-		ItemList.items = new Item[maxItems];
-		for (int i = 0; i < maxItems; i++) {
-			//Item type, Item Name, Item Bonus Damage, Item Energy
-			ItemList.items[i] = new Item(0,null, 0, 0);
+	public ItemList() {
+		
+		try {
+			input = new ItemReader();
+		} catch (IOException e) {
+			System.out.print("Error in main");
+			e.printStackTrace();
 		}
 		
-		items[0] = new Item(1, "Hand", 0, 0);
-		items[1] = new Item(1,"Sword", 5, 5);
-		items[2] = new Item(1,"Mace", 10, 10);
-		items[10] = new Item(1,"Zombie Staf", 100, 10);
-
+		ItemList.items = new Item[input.getAItems()];
+		
+		for (int i=0; i < input.getAItems();i++) {
+			//Item type, Item Name, Item Bonus Damage, Item Energy
+			items[i] = new Item(ItemReader.getResultInt(i,0),
+								ItemReader.getResultStr(i,1),
+								ItemReader.getResultInt(i,2),
+								ItemReader.getResultInt(i,3));
+			//System.out.println(i);
+		}
+		
 	}
 	
 	public Item fetch(int index) {
 		if(index<ItemList.items.length) {
-	                return ItemList.items[index];
-	      }
-	      return null;
+			return ItemList.items[index];
+	    }
+		return null;
 	}
 	
 	public static int getDamage(int item) {
@@ -35,12 +45,12 @@ public class ItemList {
 		return items[item].getEnergy();
 	}
 	
-	public int getType(int item) {
+	public static int getType(int item) {
 		return items[item].getType();
 		
 	}
 	
-	public String getName(int item) {
+	public static String getName(int item) {
 		return items[item].getName();
 	}
 }

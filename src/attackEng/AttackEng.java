@@ -4,7 +4,6 @@ public class AttackEng {
 
 	Player player = new Player();
 	Zomble zomble = new Zomble(player);
-	ItemList items = new ItemList();
 	
 	public int getPHealth() {
 		return player.getHealth();
@@ -23,11 +22,11 @@ public class AttackEng {
 	}
 	
 	public String getPWeapon() {
-		return items.getName(player.getWeapon());
+		return ItemList.getName(player.getWeapon());
 	}
 	
 	public String getZWeapon() {
-		return items.getName(zomble.getWeapon());
+		return ItemList.getName(zomble.getWeapon());
 	}
 	
 	public String getPAction() {
