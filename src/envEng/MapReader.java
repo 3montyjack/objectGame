@@ -14,9 +14,9 @@ public class MapReader {
     private String textPath = "src/envEng/text.txt";
     
     private StringBuilder buffInput = new StringBuilder();
-	private static String[] split = new String[251];
+	private static String[] split = new String[3000];
 	private static String[][] twoD = null;
-	private int mapWidth = 26;
+	private int mapWidth = 25;
 	private String value;
 
     public MapReader() throws IOException {
@@ -34,10 +34,10 @@ public class MapReader {
 		          buffInput.append(value);
 		  	      //System.out.println(value);
 	       }
-	       inputStringTo2D();
+	       
 	       
 	    } catch(Exception e) {
-	    	System.out.println("ERROR");
+	    	System.out.println("ERRORNAAA");
 	    	e.printStackTrace();
 	    } finally {
 	       
@@ -49,6 +49,7 @@ public class MapReader {
 	          buffReader.close();
 	    }    
 	    //System.out.println(getAItems());
+	    inputStringTo2D();
     }
 	
 	public void inputStringTo2D() {
@@ -59,8 +60,8 @@ public class MapReader {
 		
 		for (int i = 0; i < getAItems(); i++) {
 			for (int a = 0; a < mapWidth; a++) {
-				twoD[i][a] = split[(i*4)+a];
-				System.out.print(split[(i*4)+a]);
+				twoD[i][a] = split[(mapWidth*i)+a];
+				System.out.print(twoD[i][a]);
 			}
 			System.out.println();
 		}
@@ -68,7 +69,7 @@ public class MapReader {
 	
 	public int getAItems() {
 		//System.out.println(split.length);
-		return split.length;
+		return split.length/mapWidth;
 	}
 	
 	public static int checkType(int x, int y) {

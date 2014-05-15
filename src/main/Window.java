@@ -1,5 +1,6 @@
 package main;
 
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -45,6 +46,7 @@ public class Window implements ActionListener{
 		window.setResizable(false);
 		window.setVisible(true);
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		window.getContentPane().setBackground(Color.BLACK);
 		
 		AButton.setFocusable(false);
 		BButton.setFocusable(false);
@@ -71,6 +73,14 @@ public class Window implements ActionListener{
 		lBox.add(pWeapon);
 		lBox.add(eMove);
 		lBox.add(pMove);
+		
+		eHealth.setForeground(Color.WHITE);
+		pHealth.setForeground(Color.WHITE);
+		eWeapon.setForeground(Color.WHITE);
+		pWeapon.setForeground(Color.WHITE);
+		eMove.setForeground(Color.WHITE);
+		pMove.setForeground(Color.WHITE);
+		label.setForeground(Color.WHITE);
 		
 		AButton.setActionCommand("1");
 		BButton.setActionCommand("2");
