@@ -11,7 +11,7 @@ public class ItemReader {
 	private InputStream inputStr = null; 
     private InputStreamReader inputStrRead = null;
     private BufferedReader buffReader = null;
-    private String textPath = "src/attackEng/text.txt";
+    private String textPath = "Resources/Items.txt";
     
     private StringBuilder buffInput = new StringBuilder();
 	private static String[] split = new String[200];
@@ -37,7 +37,7 @@ public class ItemReader {
 	       inputStringTo2D();
 	       
 	    } catch(Exception e) {
-	    	System.out.println("ERROR");
+	    	System.out.println("ERROR ItemReader Class");
 	    	e.printStackTrace();
 	    } finally {
 	       
@@ -60,9 +60,9 @@ public class ItemReader {
 		for (int i = 0; i < getAItems(); i++) {
 			for (int a = 0; a < 4; a++) {
 				twoD[i][a] = split[(i*4)+a];
-				System.out.print(split[(i*4)+a]);
+				//System.out.print(split[(i*4)+a]);
 			}
-			System.out.println();
+			//System.out.println();
 		}
 	}
 	

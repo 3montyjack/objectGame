@@ -34,6 +34,9 @@ public class Window implements ActionListener{
 	JButton CButton = new JButton("Exit");
 	JButton DButton = new JButton("Restart");
 	
+	private int width = 500;
+	private int height = 500;
+	
 	ItemList list = new ItemList();
 	
 	Box pBox = Box.createVerticalBox();
@@ -42,7 +45,7 @@ public class Window implements ActionListener{
 	public void Start() {
 		
 		window.setTitle("MMO");
-		window.setSize(500, 500);
+		window.setSize(width, height);
 		window.setResizable(false);
 		window.setVisible(true);
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -74,18 +77,23 @@ public class Window implements ActionListener{
 		lBox.add(eMove);
 		lBox.add(pMove);
 		
-		eHealth.setForeground(Color.WHITE);
-		pHealth.setForeground(Color.WHITE);
-		eWeapon.setForeground(Color.WHITE);
-		pWeapon.setForeground(Color.WHITE);
-		eMove.setForeground(Color.WHITE);
-		pMove.setForeground(Color.WHITE);
-		label.setForeground(Color.WHITE);
+		eHealth.setForeground(Color.LIGHT_GRAY);
+		pHealth.setForeground(Color.LIGHT_GRAY);
+		eWeapon.setForeground(Color.LIGHT_GRAY);
+		pWeapon.setForeground(Color.LIGHT_GRAY);
+		eMove.setForeground(Color.LIGHT_GRAY);
+		pMove.setForeground(Color.LIGHT_GRAY);
+		label.setForeground(Color.LIGHT_GRAY);
 		
 		AButton.setActionCommand("1");
 		BButton.setActionCommand("2");
 		CButton.setActionCommand("3");
 		DButton.setActionCommand("11");
+		
+		AButton.setBackground(Color.LIGHT_GRAY);
+		BButton.setBackground(Color.LIGHT_GRAY);
+		CButton.setBackground(Color.LIGHT_GRAY);
+		DButton.setBackground(Color.LIGHT_GRAY);
 		
 		AButton.addActionListener(this);
 		BButton.addActionListener(this);
@@ -141,7 +149,6 @@ public class Window implements ActionListener{
 		}
 	}
 	
-	@Override
 	public void actionPerformed(ActionEvent e) {
 
 		int action = Integer.parseInt(e.getActionCommand());

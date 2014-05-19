@@ -11,12 +11,12 @@ public class MapReader {
 	private InputStream inputStr = null; 
     private InputStreamReader inputStrRead = null;
     private BufferedReader buffReader = null;
-    private String textPath = "src/envEng/text.txt";
+    private String textPath = "Resources/Map.txt";
     
     private StringBuilder buffInput = new StringBuilder();
 	private static String[] split = new String[3000];
 	private static String[][] twoD = null;
-	private int mapWidth = 25;
+	private static int mapWidth = 25;
 	private String value;
 
     public MapReader() throws IOException {
@@ -67,12 +67,20 @@ public class MapReader {
 		}
 	}
 	
-	public int getAItems() {
+	public static int getAItems() {
 		//System.out.println(split.length);
 		return split.length/mapWidth;
 	}
 	
-	public static int checkType(int x, int y) {
+	public static int getMapW() {
+		return mapWidth;
+	}
+	
+	public static int getMapH() {
+		return getAItems();
+	}
+	
+	public static int checkNumb(int x, int y) {
 		return Integer.parseInt(twoD[x][y]);
 	}
 }
