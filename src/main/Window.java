@@ -246,6 +246,7 @@ public class Window implements ActionListener{
 		 eng.setZHealth(100);
 		 AButton.setEnabled(true);
 		 BButton.setEnabled(true);
+		 update();
 	}
 	
 	public void update() {
