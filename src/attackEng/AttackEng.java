@@ -75,4 +75,12 @@ public class AttackEng {
 	public int pCurrentSlot() {
 		return player.currentSlot();
 	}
+
+	public int getPEnergy() {
+		return player.getEnergy();
+	}
+
+	public int getZEnergy() {
+		return zomble.getEnergy();
+	}
 }

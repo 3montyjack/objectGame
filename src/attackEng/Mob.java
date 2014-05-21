@@ -6,7 +6,7 @@ public class Mob {
 	
 	private Damage damage = new Damage();
 	private Health health = new Health(100);
-	private Energy energy = new Energy();
+	private Energy energy = new Energy(100);
 	public String action = "1";
 
 	
@@ -109,7 +109,7 @@ public class Mob {
 		//1 = attack, 2 = potion
 		switch (value) {
 			case 1:
-				System.out.println("006");
+				//System.out.println("006");
 				action = "Attack";
 			case 2:
 				action = "Potion";

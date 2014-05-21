@@ -34,6 +34,7 @@ public class Zomble extends Mob {
 			System.out.println(r);
 			switch (r) {
 			case 1:
+				mediumPotion();
 			case 2:
 			case 3:
 			case 4:
@@ -105,7 +106,7 @@ public class Zomble extends Mob {
 	
 	@Override
 	public String getAction() {
-		System.out.println("005");
+		//System.out.println("005");
 		return action;
 	}
 	

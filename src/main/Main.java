@@ -14,21 +14,10 @@ public class Main {
         SwingUtilities.invokeLater(new Runnable() {
                 
 				public void run() {
-                	
+                	//MapReader map;
                     Window wind = new Window();
                     wind.Start();
                     
-                    try {
-						new MapReader();
-					} catch (IOException e) {
-						System.out.println("ErrorPlz");
-						e.printStackTrace();
-					}
-                    
-                    MapWindow wind2= new MapWindow();
-                    
-                    
-                    System.out.println(ItemReader.getResultStr(11, 2));
                 }
         });
     }

@@ -77,7 +77,7 @@ public class MapReader {
 	}
 	
 	public static int getMapH() {
-		return getAItems();
+		return getAItems()-1;
 	}
 	
 	public static int checkNumb(int x, int y) {

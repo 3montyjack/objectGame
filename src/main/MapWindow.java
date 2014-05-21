@@ -2,44 +2,52 @@ package main;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.io.IOException;
 
-import javax.swing.JComponent;
-import javax.swing.JWindow;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
 import envEng.MapReader;
 
 
-public class MapWindow extends JComponent {
-
-	private static final long serialVersionUID = 1L;
-	JWindow wind = new JWindow();
+public class MapWindow {
+	JFrame wind = new JFrame();
 	private int width = 500;
 	private int height = 500;
+	Paint p = new Paint();
+	
 	
 	
 	public MapWindow() {
 		wind.setVisible(true);
-		wind.setBounds(100, 100, width, height);
+		wind.setBounds(505, 0, width, height);
+		wind.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		wind.add(p);
+		
 	}
-	
-	public void draw (Graphics g) {
-		g.setColor(new Color(123,74,18));
-		for (int x = 0; x < MapReader.getMapW();x++) {
-			for (int y = 0; y < MapReader.getMapH(); y++) {
-				if (MapReader.checkNumb(x,y) == 1) {
-					g.drawLine(x, y, x+1, y+1);
-					System.out.print(13);
-				}
-				System.out.print(15);
-				System.out.println();
-			}
-			System.out.println("Hello");
-		}
+		
+
+}
+
+@SuppressWarnings("serial")
+class Paint extends JPanel {
+	public void paintComponent (Graphics g) {
+		super.paintComponent(g);
+		g.clearRect(0, 0, getWidth(), getHeight());
+		//System.out.print("100");
+		draw(g);
 		repaint();
 		
 	}
-    public void paintComponent(Graphics g) {
-
-        super.paintComponent(g);
-        draw(g);
-    }
+	
+	public void draw(Graphics g) {
+		g.setColor(Color.red);
+		for (int x = 0; x < MapReader.getMapW();x++) {
+			for (int y = 0; y < MapReader.getMapH(); y++) {
+				if (MapReader.checkNumb(x,y) == 0) {
+					g.drawRect(x, y, 10*x+10, 10*y+10);
+				}
+			}
+		}
+	}
 }

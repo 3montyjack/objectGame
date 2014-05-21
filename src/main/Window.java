@@ -28,6 +28,8 @@ public class Window implements ActionListener{
 	JLabel pWeapon = new JLabel("Player weapon: None");
 	JLabel eMove = new JLabel("Enemy move: None");
 	JLabel pMove = new JLabel("Player move: None");
+	JLabel eEnergy = new JLabel("Enemy energy: None");
+	JLabel pEnergy = new JLabel("Player energy: None");
 	
 	JButton AButton = new JButton("Attack");
 	JButton BButton = new JButton("Potion");
@@ -45,7 +47,7 @@ public class Window implements ActionListener{
 	public void Start() {
 		
 		window.setTitle("MMO");
-		window.setSize(width, height);
+		window.setBounds(0,5,width, height);
 		window.setResizable(false);
 		window.setVisible(true);
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -76,6 +78,8 @@ public class Window implements ActionListener{
 		lBox.add(pWeapon);
 		lBox.add(eMove);
 		lBox.add(pMove);
+		lBox.add(eEnergy);
+		lBox.add(pEnergy);
 		
 		eHealth.setForeground(Color.LIGHT_GRAY);
 		pHealth.setForeground(Color.LIGHT_GRAY);
@@ -84,6 +88,8 @@ public class Window implements ActionListener{
 		eMove.setForeground(Color.LIGHT_GRAY);
 		pMove.setForeground(Color.LIGHT_GRAY);
 		label.setForeground(Color.LIGHT_GRAY);
+		pEnergy.setForeground(Color.LIGHT_GRAY);
+		eEnergy.setForeground(Color.LIGHT_GRAY);
 		
 		AButton.setActionCommand("1");
 		BButton.setActionCommand("2");
@@ -119,6 +125,7 @@ public class Window implements ActionListener{
 			DButton.setText("Back");
 			
 			DButton.setVisible(true);
+			
 			break;
 		case 2:
 			
@@ -131,6 +138,7 @@ public class Window implements ActionListener{
 			BButton.setText("Stab");
 			CButton.setText("Poke");
 			DButton.setText("Back");
+			
 			break;
 		default: 
 			
@@ -143,6 +151,7 @@ public class Window implements ActionListener{
 			BButton.setText("Potion");
 			CButton.setText("Exit");
 			DButton.setText("Restart");
+			
 			
 			break;
 		
@@ -165,7 +174,7 @@ public class Window implements ActionListener{
 			 System.exit(0);
 			 break;
 		 case 4:
-			 System.out.println("004");
+			 //System.out.println("004");
 			 action(4);
 			 setPlane(0);
 			 break;
@@ -244,8 +253,15 @@ public class Window implements ActionListener{
 		eHealth.setText("Enemy Health: " + eng.getZHealth());
 		pWeapon.setText("Player weapon: " + eng.getPWeapon());
 		eWeapon.setText("Enemy weapon: " + eng.getZWeapon());
+		try {
+		    Thread.sleep(500);
+		} catch(InterruptedException ex) {
+		    Thread.currentThread().interrupt();
+		}
 		eMove.setText("Enemy move: " + eng.getZAction());
 		pMove.setText("Player move: " + eng.getPAction());
+		eEnergy.setText("Enemy energy: " + eng.getZEnergy());
+		pEnergy.setText("Player energy: " + eng.getPEnergy());
 		
 	}
 	
