@@ -1,0 +1,5 @@
+Info:
+
+To change the name/values of a certain weapon, go into the Items.txt and change the value. 
+
+For items there is a special design that I made, the item values are: Type, Name, Damage/Health, Energy Use.

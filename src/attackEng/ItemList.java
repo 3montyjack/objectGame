@@ -20,11 +20,12 @@ public class ItemList {
 		ItemList.items = new Item[input.getAItems()];
 		
 		for (int i=0; i < input.getAItems();i++) {
-			//Item type, Item Name, Item Bonus Damage, Item Energy
+			//Item type, Item Name, Item Bonus Damage, Item Energy, ItemID.
 			items[i] = new Item(ItemReader.getResultInt(i,0),
 								ItemReader.getResultStr(i,1),
 								ItemReader.getResultInt(i,2),
-								ItemReader.getResultInt(i,3));
+								ItemReader.getResultInt(i,3),
+								ItemReader.getResultInt(i,4));
 			//System.out.println(i);
 		}
 		
@@ -69,5 +70,9 @@ public class ItemList {
 	
 	public static String getName(int item) {
 		return items[item].getName();
+	}
+	
+	public static int getID(int item) {
+		return items[item].getID();
 	}
 }

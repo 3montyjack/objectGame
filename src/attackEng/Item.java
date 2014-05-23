@@ -7,13 +7,15 @@ public class Item
 	protected String name;
 	protected int damage;
 	protected int energy;
+	protected int ID;
 	
-	public Item(int type, String name, int damage, int energy)
+	public Item(int type, String name, int damage, int energy, int ID)
 	{
 		this.name = name;
 		this.type = type;
 		this.energy = energy;
 		this.damage = damage;
+		this.ID = ID;
 	}
 	
 	public String getName() 
@@ -40,6 +42,11 @@ public class Item
 		
 	}
 	
+	public int getID() 
+	{
+		return ID;
+		
+	}
 	
 	
 	

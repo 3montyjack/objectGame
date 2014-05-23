@@ -8,6 +8,7 @@ import java.io.InputStreamReader;
 
 public class ItemReader {
 
+	private int numValues = 5;
 	private InputStream inputStr = null; 
     private InputStreamReader inputStrRead = null;
     private BufferedReader buffReader = null;
@@ -58,17 +59,17 @@ public class ItemReader {
 		twoD = new String[getAItems()][getAItems()];
 		
 		for (int i = 0; i < getAItems(); i++) {
-			for (int a = 0; a < 4; a++) {
-				twoD[i][a] = split[(i*4)+a];
-				//System.out.print(split[(i*4)+a]);
+			for (int a = 0; a < 5; a++) {
+				twoD[i][a] = split[(i*5)+a];
+				System.out.print(split[(i*5)+a]);
 			}
-			//System.out.println();
+			System.out.println();
 		}
 	}
 	
 	public int getAItems() {
 		//System.out.println(split.length);
-		return split.length/4;
+		return split.length/numValues;
 	}
 	
 	public static String getResultStr(int item, int value) {

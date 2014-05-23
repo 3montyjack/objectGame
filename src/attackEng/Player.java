@@ -16,7 +16,8 @@ public class Player extends Mob {
 		return currentSlot;
 	}
 	
-	public boolean addItem(Item item) {
+	public boolean addItem(int item) {
+		
 		if (inventory.add(item)) {
 			return true;
 		} else {

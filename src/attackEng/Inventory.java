@@ -2,55 +2,70 @@ package attackEng;
 
 public class Inventory {
 
-	private Item[] items;
-	private int firstFree;
+	private int[] inv;
+	private int iSize = 4;
+	private int firstFree = 0;
 	
 	public Inventory(int size) {
-		
-		items= new Item[size];
-		firstFree = 0;
+		inv = new int[size];
+		for (int ehh:inv) {
+			inv[ehh] = 0;
+		}
+		iSize = size;
 	}
 	
-	public boolean add(Item item) {
-		if (firstFree == items.length) {
-			return false;
+	public Inventory() {
+		inv = new int[iSize];
+		for (int ehh:inv) {
+			inv[ehh] = 0;
 		}
-		items[firstFree] = item;
-		
-		for (int i = firstFree; i < items.length; i++) {
-			if (items[i] == null) {
-				firstFree = i;
-				return true;
+	}
+	
+	public boolean add(int item) {
+		for (int i = 0; i < iSize; i++) {
+			if (inv[i]==item) {
+				System.out.println(i);
+				return false;
 			}
 		}
-		firstFree = items.length;
-		
+		inv[firstFree] = item;
+		nextFree();
 		return true;
 		
 	}
 	
-	public Item get(int index) {
-		
-		return items[index];
+	public int getSlot(int slot) {
+		return getID(inv[slot]);
 	}
 	
-	public void remove(int index) {
+	public int getID(int item) {
+		return ItemList.getID(item);
 		
-		items[index] = null;
-		if (index < firstFree)
-			firstFree = index;
+	}
+	public boolean checkItemThere(int slot) {
+		if (getSlot(slot) != 0) {
+			return false;
+		}
+		return true;
 	}
 	
-	public void remove(Item item) {
+	public void nextFree() {
+		for (int i = 0; i < iSize; i++) {
+			if (inv[i]==0) {
+				firstFree = i;
+				return;
+			}
+		} 
+		firstFree = 0;
 		
-		for(int i = 0; i < items.length; i++) {
-			if(items[i] ==item) 
-				items[i] = null;
+	}
+	
+	public void remove(int item) {
+		for (int number:inv) {
+			if (number == item) {
+				inv[item] = 0;
+				firstFree = item;
+			}
 		}
 	}
-	
-	
-	
-	
-	
 }
