@@ -33,8 +33,10 @@ public class Window implements ActionListener{
 	
 	JButton AButton = new JButton("Attack");
 	JButton BButton = new JButton("Potion");
-	JButton CButton = new JButton("Exit");
-	JButton DButton = new JButton("Restart");
+	JButton DButton = new JButton("Item");
+	JButton EButton = new JButton("Exit");
+	JButton FButton = new JButton("Restart");
+
 	
 	private int width = 500;
 	private int height = 500;
@@ -55,8 +57,8 @@ public class Window implements ActionListener{
 		
 		AButton.setFocusable(false);
 		BButton.setFocusable(false);
-		CButton.setFocusable(false);
-		DButton.setFocusable(false);
+		EButton.setFocusable(false);
+		FButton.setFocusable(false);
 		
 		window.add(pBox);
 		window.add(lBox);
@@ -69,8 +71,9 @@ public class Window implements ActionListener{
 		
 		pBox.add(AButton);
 		pBox.add(BButton);
-		pBox.add(CButton);
 		pBox.add(DButton);
+		pBox.add(EButton);
+		pBox.add(FButton);
 		
 		lBox.add(eHealth);
 		lBox.add(pHealth);
@@ -93,18 +96,20 @@ public class Window implements ActionListener{
 		
 		AButton.setActionCommand("1");
 		BButton.setActionCommand("2");
-		CButton.setActionCommand("3");
-		DButton.setActionCommand("11");
+		EButton.setActionCommand("3");
+		FButton.setActionCommand("11");
 		
 		AButton.setBackground(Color.LIGHT_GRAY);
 		BButton.setBackground(Color.LIGHT_GRAY);
-		CButton.setBackground(Color.LIGHT_GRAY);
 		DButton.setBackground(Color.LIGHT_GRAY);
+		EButton.setBackground(Color.LIGHT_GRAY);
+		FButton.setBackground(Color.LIGHT_GRAY);
 		
 		AButton.addActionListener(this);
 		BButton.addActionListener(this);
-		CButton.addActionListener(this);
 		DButton.addActionListener(this);
+		EButton.addActionListener(this);
+		FButton.addActionListener(this);
 		
 	}
 	
@@ -116,41 +121,43 @@ public class Window implements ActionListener{
 			
 			AButton.setActionCommand("4");
 			BButton.setActionCommand("5");
-			CButton.setActionCommand("6");
-			DButton.setActionCommand("7");
+			EButton.setActionCommand("6");
+			FButton.setActionCommand("7");
 			
 			AButton.setText(ItemList.getName(10));
 			BButton.setText(ItemList.getName(11));
-			CButton.setText(ItemList.getName(12));
-			DButton.setText("Back");
+			EButton.setText(ItemList.getName(12));
+			FButton.setText("Back");
 			
-			DButton.setVisible(true);
+			FButton.setVisible(true);
 			
 			break;
 		case 2:
 			
 			AButton.setActionCommand("8");
 			BButton.setActionCommand("9");
-			CButton.setActionCommand("10");
-			DButton.setActionCommand("7");
+			EButton.setActionCommand("10");
+			FButton.setActionCommand("7");
 			
 			AButton.setText("Slash");
 			BButton.setText("Stab");
-			CButton.setText("Poke");
-			DButton.setText("Back");
+			EButton.setText("Poke");
+			FButton.setText("Back");
 			
 			break;
+		case 3:
+			
 		default: 
 			
 			AButton.setActionCommand("1");
 			BButton.setActionCommand("2");
-			CButton.setActionCommand("3");
-			DButton.setActionCommand("11");
+			EButton.setActionCommand("3");
+			FButton.setActionCommand("11");
 			
 			AButton.setText("Attack");
 			BButton.setText("Potion");
-			CButton.setText("Exit");
-			DButton.setText("Restart");
+			EButton.setText("Exit");
+			FButton.setText("Restart");
 			
 			
 			break;
@@ -215,6 +222,7 @@ public class Window implements ActionListener{
 	 		label.setText("Player is Dead");
 	 		AButton.setEnabled(false);
 	 		BButton.setEnabled(false);
+	 		DButton.setEnabled(false);
 	 	} else {
 		 	playerMove(pMove);
 	 	}
@@ -223,14 +231,17 @@ public class Window implements ActionListener{
 	 		label.setText("Zombie is Dead");
 	 		AButton.setEnabled(false);
 	 		BButton.setEnabled(false);
+	 		DButton.setEnabled(false);
 	 	} else if (eng.getPDead()) {
 	 		AButton.setEnabled(false);
 	 		BButton.setEnabled(false);
+	 		DButton.setEnabled(false);
 	 	} else {
 		 	eng.zMove();
 		 	if (eng.getPDead()) {
 		 		AButton.setEnabled(false);
 		 		BButton.setEnabled(false);
+		 		DButton.setEnabled(false);
 		 	}
 	 	}
 	 	update();
@@ -254,11 +265,6 @@ public class Window implements ActionListener{
 		eHealth.setText("Enemy Health: " + eng.getZHealth());
 		pWeapon.setText("Player weapon: " + eng.getPWeapon());
 		eWeapon.setText("Enemy weapon: " + eng.getZWeapon());
-		try {
-		    Thread.sleep(500);
-		} catch(InterruptedException ex) {
-		    Thread.currentThread().interrupt();
-		}
 		eMove.setText("Enemy move: " + eng.getZAction());
 		pMove.setText("Player move: " + eng.getPAction());
 		eEnergy.setText("Enemy energy: " + eng.getZEnergy());

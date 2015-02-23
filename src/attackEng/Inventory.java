@@ -3,7 +3,7 @@ package attackEng;
 public class Inventory {
 
 	private int[] inv;
-	private int iSize = 4;
+	private static int iSize = 4;
 	private int firstFree = 0;
 	
 	public Inventory(int size) {
@@ -58,6 +58,10 @@ public class Inventory {
 		} 
 		firstFree = 0;
 		
+	}
+	
+	public int iSize() {
+		return iSize;
 	}
 	
 	public void remove(int item) {

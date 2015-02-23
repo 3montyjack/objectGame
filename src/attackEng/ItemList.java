@@ -75,4 +75,13 @@ public class ItemList {
 	public static int getID(int item) {
 		return items[item].getID();
 	}
+	
+	public static String getNameID(int ID) {
+		for (int i = 0; i < Player.iSize();i++) {
+			if (ID == items[i].getID()) {
+				return items[i].getName();
+			}
+		}
+		return null;
+	}
 }

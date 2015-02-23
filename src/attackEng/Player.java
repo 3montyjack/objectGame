@@ -4,34 +4,15 @@ package attackEng;
 
 public class Player extends Mob {
 
-	Inventory inventory = new Inventory(10);
+	
 	
 	public Player() {
-		
-	}
-	
-	private int currentSlot = 1;
-	
-	public int currentSlot() {
-		return currentSlot;
+		inv = new Inventory();
 	}
 	
 	public boolean addItem(int item) {
-		
-		if (inventory.add(item)) {
-			return true;
-		} else {
-			return false;
-		}
-		
+		return inv.add(item);
 	}
-	
-	public int getWeapon() {
-		return currentSlot;
-	}
-	
-	
-	
 	
 	
 }

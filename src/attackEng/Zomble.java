@@ -11,6 +11,8 @@ public class Zomble extends Mob {
 	
 	public Zomble(Player inputs) {
 		player = inputs;
+		inv = new Inventory(10);
+		
 	}
 	
 	public void move() {
@@ -108,6 +110,16 @@ public class Zomble extends Mob {
 	public String getAction() {
 		//System.out.println("005");
 		return action;
+	}
+	
+	public boolean addItem(int item) {
+		
+		if (inv.add(item)) {
+			return true;
+		} else {
+			return false;
+		}
+		
 	}
 	
 	
