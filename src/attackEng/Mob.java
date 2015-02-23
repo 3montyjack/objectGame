@@ -8,7 +8,7 @@ public class Mob {
 	private Health health = new Health(100);
 	private Energy energy = new Energy(100);
 	public String action = "1";
-	Inventory inv;
+	static Inventory inv;
 	
 	
 	public void looseHealth(int ammount) {
@@ -130,7 +130,7 @@ public class Mob {
 		return action;
 	}
 	
-	public int iSize() {
+	public static int iSize() {
 		return inv.iSize();
 	}
 	

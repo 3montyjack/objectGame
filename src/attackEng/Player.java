@@ -13,6 +13,11 @@ public class Player extends Mob {
 	public boolean addItem(int item) {
 		return inv.add(item);
 	}
+
+	public int getWeapon() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 	
 	
 }
