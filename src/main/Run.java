@@ -2,18 +2,28 @@ package main;
 
 import javax.swing.SwingUtilities;
 
+import attackEng.MobList;
+
 public class Run {
 
-	public static AttackInitial attack;
+	
+	MobList mobs;
 	
 	private Run() {
 		
 	}
 	public static void main(String[] args) {
+		mobs = new MobList();
 		 	SwingUtilities.invokeLater(new Runnable() {
 
 				public void run() {
-					attack = new AttackInitial();
+					
+					for (int i = 0; i < 5; i++)
+					{
+						System.out.println(mobs.getHealth(i));
+						System.out.println(mobs.getName(i));
+						System.out.println(mobs.getType(i));
+					}
 					
 				}
 		 		

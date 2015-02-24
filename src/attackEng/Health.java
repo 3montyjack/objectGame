@@ -2,7 +2,7 @@ package attackEng;
 
 public class Health {
 
-	int health;
+	private int health;
 	public Health(int ammount) {
 		setHealth(ammount);
 	}

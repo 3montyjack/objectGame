@@ -1,12 +1,12 @@
 package attackEng;
 
-import main.AttackInitial;
+import main.AttackInit;
 
 public class Mob {
 	
 	Health health;
-	
-	String name = "";
+	Armor armor;
+	String name;
 	int type;
 	public Mob(String name, int type) {
 		
@@ -15,15 +15,19 @@ public class Mob {
 		switch (type){
 			case 1:
 				makeHuman();
+				System.out.println("Error 002");
 				break;
 			case 2:
 				makeZombie();
+				System.out.println("Error 005");
 				break;
 			case 3:
 				makeAlien();
+				System.out.println("Error 003");
 				break;
 			default:
-				
+				System.out.println("Error 001");
+				makeAlien();
 				break;
 		}
 		
@@ -31,17 +35,20 @@ public class Mob {
 	}
 
 	private void makeAlien() {
-		health = new Health(AttackInitial.alienHealth);
+		health = new Health(AttackInit.alienHealth);
+		armor = new Armor(AttackInit.alienArmor);
 		
 	}
 
 	private void makeZombie() {
-		health = new Health(AttackInitial.zombieHealth);
+		health = new Health(AttackInit.zombieHealth);
+		armor = new Armor(AttackInit.zombieArmor);
 		
 	}
 
 	private void makeHuman() {
-		health = new Health(AttackInitial.humanHealth);
+		health = new Health(AttackInit.humanHealth);
+		armor = new Armor(AttackInit.humanArmor);
 		
 		
 	}
@@ -52,6 +59,21 @@ public class Mob {
 
 	public int getHealth() {
 		return health.getHealth();
+	}
+	
+	public int getArmor() {
+		return armor.getArmor();
+	}
+	
+	public int damage(int ammount) {
+		if (ammount < getArmor()) {
+			return ammount - getArmor();
+		} else
+			return 0;
+	}
+	
+	public void damageHealth(int damage) {
+		health.subtractHealth(damage(damage));
 	}
 
 }

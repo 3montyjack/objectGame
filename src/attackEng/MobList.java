@@ -1,14 +1,14 @@
 package attackEng;
 
-import main.AttackInitial;
+import main.AttackInit;
 
-public class MobList {
+public class MobList extends AttackInit {
 
-	Mob[] mobList;
+	Mob[] mobList = new Mob[AttackInit.mobNumber];
 	public MobList() {
-		mobList = new Mob[AttackInitial.mobNumber];
-		for (int slot = 0; slot <= AttackInitial.mobNumber; slot++) {
-			mobList[slot] = new Mob(AttackInitial.getName(slot),AttackInitial.getType(slot));
+		for (int slot = 0; slot <= AttackInit.mobNumber; slot++) {
+			System.out.println("Attempt" + slot);
+			mobList[slot] = new Mob(setName(slot),setType(slot));
 		}
 	}
 	
